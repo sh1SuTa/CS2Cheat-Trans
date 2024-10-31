@@ -531,8 +531,10 @@ D2D Aiming(D3D LocalAxis, char* AimAddress)
 	D2D Aimmouse;
 	float P_I = 3.1415926535f;
 
-
-	Aimindex = AimAddress + (Menu::Aimplace - 1) * 32;
+	//7为目标头部，-1则为6
+	//Aimindex = AimAddress + (Menu::Aimplace-1)  * 32;
+	Aimindex = AimAddress + Menu::Aimplace  * 32;
+	
 
 	mem::Read(cheat::g_handle, Aimindex, &ActorAxis.x, sizeof(ActorAxis.x));
 	mem::Read(cheat::g_handle, Aimindex + 4, &ActorAxis.y, sizeof(ActorAxis.y));
