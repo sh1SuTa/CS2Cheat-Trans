@@ -5,4 +5,7 @@
 各偏移量可在out中找到
 偏移量： https://github.com/a2x/cs2-dumper
 矩阵： constexpr std::ptrdiff_t dwViewMatrix = 0x1A33E30;
+
 Pawn：constexpr std::ptrdiff_t dwLocalPlayerPawn = 0x1836BB8;
+
+bot_kick 踢出机器人
