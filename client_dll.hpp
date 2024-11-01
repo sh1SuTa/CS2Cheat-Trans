@@ -1,9 +1,11 @@
 ﻿// Generated using https://github.com/a2x/cs2-dumper
-// 2024-10-29 04:47:11.381309800 UTC
+// 2024-11-01 15:12:32.585835400 UTC
 
 #pragma once
 
 #include <cstddef>
+#include <cstdint>
+
 
 namespace cs2_dumper {
     namespace schemas {
@@ -474,7 +476,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_flDecalHealHeightRate = 0xC90; // 
                 constexpr std::ptrdiff_t m_ConfigEntitiesToPropagateMaterialDecalsTo = 0xC98; // 
                 constexpr std::ptrdiff_t m_vecViewOffset = 0xCB0; // 
-                constexpr std::ptrdiff_t m_pClientAlphaProperty = 0xCE0; // 
+                constexpr std::ptrdiff_t m_pClientAlphaProperty = 0xCE0; // CClientAlphaProperty*
                 constexpr std::ptrdiff_t m_ClientOverrideTint = 0xCE8; // 
                 constexpr std::ptrdiff_t m_bUseClientOverrideTint = 0xCEC; // 
             }
@@ -1526,7 +1528,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_unVerticalAlign = 0xF50; // 
                 constexpr std::ptrdiff_t m_unOrientation = 0xF54; // 
                 constexpr std::ptrdiff_t m_bAllowInteractionFromAllSceneWorlds = 0xF58; // 
-                constexpr std::ptrdiff_t m_vecCSSClasses = 0xF60; // C_NetworkUtlVectorBase<CUtlSymbolLarge>
+                constexpr std::ptrdiff_t m_vecCSSClasses = 0xF60; // 
                 constexpr std::ptrdiff_t m_bOpaque = 0xF78; // 
                 constexpr std::ptrdiff_t m_bNoDepth = 0xF79; // 
                 constexpr std::ptrdiff_t m_bRenderBackface = 0xF7A; // 
@@ -2762,13 +2764,13 @@ namespace cs2_dumper {
             // NetworkVarNames: m_nRandomSeedOffset (int)
             // NetworkVarNames: m_flLastTeleportTime (float)
             namespace CAnimGraphNetworkedVariables {
-                constexpr std::ptrdiff_t m_PredNetBoolVariables = 0x8; // C_NetworkUtlVectorBase<uint32>
+                constexpr std::ptrdiff_t m_PredNetBoolVariables = 0x8; // 
                 constexpr std::ptrdiff_t m_PredNetByteVariables = 0x20; // 
-                constexpr std::ptrdiff_t m_PredNetUInt16Variables = 0x38; // C_NetworkUtlVectorBase<uint16>
+                constexpr std::ptrdiff_t m_PredNetUInt16Variables = 0x38; // 
                 constexpr std::ptrdiff_t m_PredNetIntVariables = 0x50; // 
-                constexpr std::ptrdiff_t m_PredNetUInt32Variables = 0x68; // C_NetworkUtlVectorBase<uint32>
-                constexpr std::ptrdiff_t m_PredNetUInt64Variables = 0x80; // C_NetworkUtlVectorBase<uint64>
-                constexpr std::ptrdiff_t m_PredNetFloatVariables = 0x98; // C_NetworkUtlVectorBase<float32>
+                constexpr std::ptrdiff_t m_PredNetUInt32Variables = 0x68; // 
+                constexpr std::ptrdiff_t m_PredNetUInt64Variables = 0x80; // 
+                constexpr std::ptrdiff_t m_PredNetFloatVariables = 0x98; // 
                 constexpr std::ptrdiff_t m_PredNetVectorVariables = 0xB0; // C_NetworkUtlVectorBase<Vector>
                 constexpr std::ptrdiff_t m_PredNetQuaternionVariables = 0xC8; // C_NetworkUtlVectorBase<Quaternion>
                 constexpr std::ptrdiff_t m_PredNetGlobalSymbolVariables = 0xE0; // C_NetworkUtlVectorBase<CGlobalSymbol>
@@ -2777,9 +2779,9 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_OwnerOnlyPredNetUInt16Variables = 0x128; // C_NetworkUtlVectorBase<uint16>
                 constexpr std::ptrdiff_t m_OwnerOnlyPredNetIntVariables = 0x140; // 
                 constexpr std::ptrdiff_t m_OwnerOnlyPredNetUInt32Variables = 0x158; // C_NetworkUtlVectorBase<uint32>
-                constexpr std::ptrdiff_t m_OwnerOnlyPredNetUInt64Variables = 0x170; // C_NetworkUtlVectorBase<uint64>
+                constexpr std::ptrdiff_t m_OwnerOnlyPredNetUInt64Variables = 0x170; // 
                 constexpr std::ptrdiff_t m_OwnerOnlyPredNetFloatVariables = 0x188; // C_NetworkUtlVectorBase<float32>
-                constexpr std::ptrdiff_t m_OwnerOnlyPredNetVectorVariables = 0x1A0; // C_NetworkUtlVectorBase<Vector>
+                constexpr std::ptrdiff_t m_OwnerOnlyPredNetVectorVariables = 0x1A0; // 
                 constexpr std::ptrdiff_t m_OwnerOnlyPredNetQuaternionVariables = 0x1B8; // C_NetworkUtlVectorBase<Quaternion>
                 constexpr std::ptrdiff_t m_OwnerOnlyPredNetGlobalSymbolVariables = 0x1D0; // C_NetworkUtlVectorBase<CGlobalSymbol>
                 constexpr std::ptrdiff_t m_nBoolVariablesCount = 0x1E8; // 
@@ -3115,7 +3117,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_Handle = 0x28; // 
                 constexpr std::ptrdiff_t m_Name = 0x30; // 
                 constexpr std::ptrdiff_t m_AssociatedEntities = 0x38; // 
-                constexpr std::ptrdiff_t m_AssociatedEntityNames = 0x50; // C_NetworkUtlVectorBase<CUtlSymbolLarge>
+                constexpr std::ptrdiff_t m_AssociatedEntityNames = 0x50; // 
             }
             // Parent: C_CSWeaponBaseGun
             // Field count: 0
@@ -5899,7 +5901,7 @@ namespace cs2_dumper {
             namespace C_BreakableProp {
                 constexpr std::ptrdiff_t m_CPropDataComponent = 0xFC8; // 
                 constexpr std::ptrdiff_t m_OnBreak = 0x1008; // 
-                constexpr std::ptrdiff_t m_OnHealthChanged = 0x1030; // 
+                constexpr std::ptrdiff_t m_OnHealthChanged = 0x1030; // CEntityOutputTemplate<float32>
                 constexpr std::ptrdiff_t m_OnTakeDamage = 0x1058; // 
                 constexpr std::ptrdiff_t m_impactEnergyScale = 0x1080; // 
                 constexpr std::ptrdiff_t m_iMinHealthDmg = 0x1084; // 
@@ -6165,7 +6167,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_flFontSize = 0xF88; // 
                 constexpr std::ptrdiff_t m_flDepthOffset = 0xF8C; // 
                 constexpr std::ptrdiff_t m_Color = 0xF90; // 
-                constexpr std::ptrdiff_t m_nJustifyHorizontal = 0xF94; // PointWorldTextJustifyHorizontal_t
+                constexpr std::ptrdiff_t m_nJustifyHorizontal = 0xF94; // 
                 constexpr std::ptrdiff_t m_nJustifyVertical = 0xF98; // 
                 constexpr std::ptrdiff_t m_nReorientMode = 0xF9C; // 
             }

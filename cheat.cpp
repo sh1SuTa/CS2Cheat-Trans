@@ -21,18 +21,15 @@ bool 绘制测试();
 
 
 void Traverse() {
-	
-	//本地矩阵
-	mem::Read(cheat::g_handle, cheat::clientAddress + 0x1A33E30, &cheat::Matrix, sizeof(cheat::Matrix));
-
+	mem::Read(cheat::g_handle, cheat::clientAddress + 0x1A33E30, &cheat::Matrix, sizeof(cheat::Matrix));//本地矩阵
 	//遍历对象玩家地址
-	for (int i = 0; i < 32; i++)
+	for (int i = 0; i < 31; i++)
 	{
-		if ( !ReadLocalPawn()) {
+		if ( !ReadLocalPawn()) {//包含了血量，队伍
 			continue;
 		}
 		//对象玩家地址[0]获取处
-		if (!mem::Read(cheat::g_handle, cheat::clientAddress + 0x01A2A488, &cheat::ActorPlayer.Address[0],8)) {
+		if (!mem::Read(cheat::g_handle, cheat::clientAddress + 0x01A2A478, &cheat::ActorPlayer.Address[0],8)) {
 			continue;
 		}
 		//对象玩家地址[1]获取处
@@ -40,16 +37,14 @@ void Traverse() {
 			continue;
 		}
 		if (cheat::ActorPlayer.Address[1] == nullptr || cheat::ActorPlayer.Address[1] == cheat::LocalPlayer.Address[0])
+		{//判断是不是自己
+			continue;
+		}
+		if ( !ReadActorPawn())//读取其他人坐标，每一次for循环就是一个实体
 		{
 			continue;
 		}
-		if ( !ReadActorPawn())
-		{
-			continue;
-		}
-
-		
-		
+		改fov角度();
 		//计算2D方框大小
 		The2DBoxsize();
 		//画框
@@ -65,29 +60,21 @@ void Traverse() {
 		{
 			绘制骨骼();
 		}
-		EnterAimQueue();
-		
-		
+		自瞄队列();
 	}
 	if (Menu::Aimbot)
 	{
-		Aimbot();
+		自瞄();
 	}
 	//绘制自瞄范围
 	if (Menu::DrawFov)
 	{
 		ImGui::GetForegroundDrawList()->AddCircle({ cheat::屏幕宽度,cheat::屏幕高度 },Menu::Fov*8,ImColor(255,155,255));
 	}
-
-
-	
-
-	/*ImGui::Begin(u8"菜单");
-	ImGui::End();*/
 }
 
 
-//读取本地玩家pawn
+//读取本地玩家
 bool ReadLocalPawn() {
 	//基础地址
 	if ( 
@@ -125,12 +112,10 @@ bool ReadLocalPawn() {
 	mem::Read(cheat::g_handle, 临时骨骼+8, &cheat::LocalPlayer.Axis.z, 4);
 	//printf("Skeleton地址：%p \n", cheat::LocalPlayer.SkeletonAddress[1]);
 	return true;
-
 }
 
 //读取对象玩家Pawn
 bool ReadActorPawn() {
-	
 	//血量
 	if (
 		!mem::Read(cheat::g_handle, cheat::ActorPlayer.Address[1] + 0xAB4, &cheat::ActorPlayer.Health, 4)
@@ -235,7 +220,6 @@ bool The2DBoxsize() {
 	{
 		return false;
 	}
-
 	//头部
 	float 世界坐标2[3] = { cheat::ActorPlayer.Axis.x, cheat::ActorPlayer.Axis.y ,cheat::ActorPlayer.Axis.z+70.f };
 	float 屏幕坐标2[2];
@@ -248,8 +232,6 @@ bool The2DBoxsize() {
 	cheat::ActorPlayer.x2 = 屏幕坐标[0]+(屏幕坐标[1] - 屏幕坐标2[1])/4.f;
 	cheat::ActorPlayer.y2 = 屏幕坐标[1];
 	return true;
-	
-
 }
 
 
@@ -359,31 +341,7 @@ void 骨骼连线(char* Address, int start, int End)
 void 绘制骨骼() {
 
 	
-	/*if (Menu::绘制骨骼类型 ==0)
-	{
-		char* Address;
-		float screen[2];
-		D3D 骨骼坐标;
-		for (int i = 0; i <70; i++)
-		{
-			if (i != 36)
-			{
-
-
-				Address = cheat::ActorPlayer.SkeletonAddress[1] + (i - 1) * 32;
-				mem::Read(cheat::g_handle, Address, &骨骼坐标.x, 4);
-				mem::Read(cheat::g_handle, Address + 4, &骨骼坐标.y, 4);
-				mem::Read(cheat::g_handle, Address + 8, &骨骼坐标.z, 4);
-				float 世界坐标[3] = { 骨骼坐标.x,骨骼坐标.y,骨骼坐标.z };
-				if (WorldScreen2d(世界坐标, screen))
-				{
-					char SkeletonText[256];
-					sprintf_s(SkeletonText, "%.d", i);
-					ImGui::GetForegroundDrawList()->AddText({ screen[0],screen[1] }, ImColor(78, 173, 0), SkeletonText);
-				}
-			}
-		}
-	}*/
+	
 	if (Menu::绘制骨骼类型 == 0) {
 		char* Address;
 		float screen[2];
@@ -443,10 +401,6 @@ void 绘制骨骼() {
 		骨骼连线(cheat::ActorPlayer.SkeletonAddress[1], 23, 24);
 		骨骼连线(cheat::ActorPlayer.SkeletonAddress[1], 24, 25);
 	}
-	
-
-
-
 }
 
 
@@ -468,57 +422,26 @@ bool 绘制测试() {
 
 }
 
-//进入自瞄队列
-char* EnterAimAddress[2];
-float ActorDistance;
-void EnterAimQueue()
-{
-	cheat::FOV = Menu::Fov * 8;
-	float World[3] = { cheat::ActorPlayer.Axis.x,cheat::ActorPlayer.Axis.y,cheat::ActorPlayer.Axis.z + 70.f };
-	float screen[2];
-	if (WorldScreen2d(World, screen))
-	{
-		ActorDistance = calculateDistance({ cheat::屏幕宽度,cheat::屏幕高度 }, { screen[0],screen[1] });
-		if (cheat::FOV > ActorDistance)
-		{
-			cheat::FOV = ActorDistance;
 
-			EnterAimAddress[0] = cheat::ActorPlayer.Address[1];
-			//对象骨骼地址给EnterAimAddress[1]
-			EnterAimAddress[1] = cheat::ActorPlayer.SkeletonAddress[1];
-		}
-	}
-}
 
-//自瞄
-void Aimbot()
-{
-	cheat::AimAddress[0] = EnterAimAddress[0];
-	//对象玩家骨骼地址给AimAddress[1]
-	cheat::AimAddress[1] = EnterAimAddress[1];
-	int lin_hp;
-	mem::Read(cheat::g_handle, cheat::AimAddress[0] + 0x344, &lin_hp, 4);
-	//判断血量是否>0
-	if (lin_hp > 0)
-	{
-		cheat::Aimmouse = Aiming(cheat::LocalPlayer.Axis, cheat::AimAddress[1]);
 
-		if (GetAsyncKeyState(Menu::Aimkey))
-		{
-			mem::Write(cheat::g_handle, cheat::clientAddress + 0x1A3DCC4, &cheat::Aimmouse.x, sizeof(cheat::Aimmouse.x));
-			mem::Write(cheat::g_handle, cheat::clientAddress + 0x1A3DCC0, &cheat::Aimmouse.y, sizeof(cheat::Aimmouse.y));
-		}
-	}
 
-}
+
+
+
+
+
+
+
+
 //取准星距离
 float calculateDistance(const D2D 准星, const D2D 对象)
 {
 	D2D 距离_;
 	float 距离;
 
-	距离_.x = 准星.x - 对象.x-50;
-	距离_.y = 准星.y - 对象.y-10;
+	距离_.x = 准星.x - 对象.x;
+	距离_.y = 准星.y - 对象.y;
 	距离 = sqrt(距离_.x * 距离_.x + 距离_.y * 距离_.y);
 	return 距离;
 }
