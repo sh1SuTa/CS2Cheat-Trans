@@ -33,10 +33,7 @@ void 改fov角度2() {
 }
 
 void 旋转大陀螺() {
-    while(true)
-    {
-        if (Menu::旋转启用)
-        {
+    
             float 转速 = 1.f;
             mem::Write(cheat::g_handle, cheat::clientAddress + 0x1A3DCC4, &工具::初始值, sizeof(工具::初始值));
             工具::初始值 = 工具::初始值 + 转速;
@@ -44,7 +41,16 @@ void 旋转大陀螺() {
             {
                 工具::初始值 = -180;
             }
+}
+
+void 作弊线程1() {
+    while (true)
+    {
+        if (Menu::旋转启用)
+        {
+            旋转大陀螺();
         }
         
     }
+
 }

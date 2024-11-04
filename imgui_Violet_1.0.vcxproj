@@ -161,6 +161,7 @@
     <ClCompile Include="myimgui.cpp" />
     <ClCompile Include="工具.cpp" />
     <ClCompile Include="自瞄功能.cpp" />
+    <ClCompile Include="透视.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cheat.h" />
@@ -178,6 +179,8 @@
     <ClInclude Include="myimgui.h" />
     <ClInclude Include="offsets.hpp" />
     <ClInclude Include="工具.h" />
+    <ClInclude Include="自瞄功能.h" />
+    <ClInclude Include="透视.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

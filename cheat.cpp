@@ -19,12 +19,11 @@ bool 绘制测试();
 
 
 void Traverse() {
-	mem::Read(cheat::g_handle, cheat::clientAddress + cs2_dumper::offsets::client_dll::dwViewMatrix, &cheat::Matrix, sizeof(cheat::Matrix));//本地矩阵
-	
-	
+	//本地矩阵
+	mem::Read(cheat::g_handle, cheat::clientAddress + cs2_dumper::offsets::client_dll::dwViewMatrix, &cheat::Matrix, sizeof(cheat::Matrix));
 	
 	//遍历对象玩家地址
-	for (int i = 0; i < 31; i++)
+	for (int i = 0; i < 30; i++)
 	{
 		if ( !ReadLocalPawn()) {//包含了血量，队伍
 			continue;
@@ -49,6 +48,9 @@ void Traverse() {
 		
 		//计算2D方框大小
 		The2DBoxsize();
+		cheat::ActorInfo target;
+		cheat::ActorDistance = calculateDistance({ cheat::屏幕宽度,cheat::屏幕高度 }, { screen[0],screen[1] });
+		
 		//画框
 		if (Menu::box)
 		{

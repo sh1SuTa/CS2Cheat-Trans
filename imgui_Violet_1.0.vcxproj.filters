@@ -72,6 +72,9 @@
     <ClCompile Include="工具.cpp">
       <Filter>工具类</Filter>
     </ClCompile>
+    <ClCompile Include="透视.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImGui\imconfig.h">
@@ -118,6 +121,12 @@
     </ClInclude>
     <ClInclude Include="offsets.hpp">
       <Filter>实体类</Filter>
+    </ClInclude>
+    <ClInclude Include="透视.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="自瞄功能.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

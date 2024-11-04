@@ -32,6 +32,7 @@ void 自瞄()
 	cheat::AimAddress[1] = cheat::EnterAimAddress[1];
 	int lin_hp;
 	mem::Read(cheat::g_handle, cheat::AimAddress[0] + 0x344, &lin_hp, 4);
+	
 
 	// 判断对方血量是否 > 0
 	if (lin_hp > 0)
@@ -50,17 +51,24 @@ void 自瞄()
 		}
 	}
 }
+void 自瞄优化() {
+	if(cheat::LocalPlayer.Health <= 0&& cheat::LocalPlayer.Health>100) {
+		return; // 本地玩家死亡时不进行瞄准
+	}
+	float 最小距离 = FLT_MAX; // 初始化最小距离
+
+}
 //自瞄算法
 D2D Aiming(D3D LocalAxis, char* AimAddress)
 {
 	char* Aimindex;
 	D3D ActorAxis;
 	D3D AimAxis;
+	//目标轴
 	D2D Aimmouse;
 	float P_I = 3.1415926535f;
 
-	//7为目标头部，-1则为6
-	//Aimindex = AimAddress + (Menu::Aimplace-1)  * 32;
+	//6为目标头部
 	Aimindex = AimAddress + Menu::Aimplace * 32;
 
 
@@ -68,26 +76,10 @@ D2D Aiming(D3D LocalAxis, char* AimAddress)
 	mem::Read(cheat::g_handle, Aimindex + 4, &ActorAxis.y, sizeof(ActorAxis.y));
 	mem::Read(cheat::g_handle, Aimindex + 8, &ActorAxis.z, sizeof(ActorAxis.z));
 
-	/*AimAxis.x = LocalAxis.x - ActorAxis.x;
-	AimAxis.y = LocalAxis.y - ActorAxis.y;*/
+	
 	AimAxis.z = LocalAxis.z - ActorAxis.z;
 	AimAxis.x = ActorAxis.x - LocalAxis.x;
 	AimAxis.y = ActorAxis.y - LocalAxis.y;
-
-
-
-	//第一象限
-	//if (AimAxis.x >= 0 && AimAxis.y >= 0)
-		//Aimmouse.x = atan(AimAxis.y / AimAxis.x) / P_I * 180 + 180;
-	//第二象限
-	//if (AimAxis.x <= 0 && AimAxis.y >= 0)
-		//Aimmouse.x = atan(AimAxis.y / AimAxis.x) / P_I * 180;
-	//第三象限
-	//if (AimAxis.x <= 0 && AimAxis.y <= 0)
-		//Aimmouse.x = atan(AimAxis.y / AimAxis.x) / P_I * 180;
-	//第四象限
-	//if (AimAxis.x >= 0 && AimAxis.y <= 0)
-		//Aimmouse.x = atan(AimAxis.y / AimAxis.x) / P_I * 180 - 180;
 	if (AimAxis.x != 0)
 		Aimmouse.x = atan2(AimAxis.y, AimAxis.x) * 180 / P_I; // 使用 atan2 处理所有象限
 
@@ -98,4 +90,16 @@ D2D Aiming(D3D LocalAxis, char* AimAddress)
 	Aimmouse.y = atan(AimAxis.z / sqrt(AimAxis.x * AimAxis.x + AimAxis.y * AimAxis.y)) / P_I * 180;
 	return Aimmouse;
 
+}
+cheat::ActorInfo 选择最近目标(const std::vector<cheat::ActorInfo>& targets) {
+	cheat::ActorInfo bestTarget{};
+	float minDistance = FLT_MAX;
+
+	for (const auto& target : targets) {
+		if (target.距离 < minDistance) {
+			minDistance = target.距离;
+			bestTarget = target;
+		}
+	}
+	return bestTarget;
 }

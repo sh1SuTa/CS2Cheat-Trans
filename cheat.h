@@ -4,10 +4,11 @@
 #include "Menu.h"
 #include"工具.h"
 #include"offsets.hpp"
+#include"自瞄功能.h"
 
 #include<cmath>
 #include <iostream>
-
+#include<vector>
 
 
 
@@ -49,30 +50,26 @@ namespace cheat {
 	inline char* AimAddress[2];
 	inline float FOV;//自瞄范围
 	inline D2D Aimmouse;
+	
+
 	struct ActorInfo
 	{
-
 		char* Address[2]; 	//基础地址
-
 		char* SkeletonAddress[2]; //骨骼地址
-
-
 		int Health; //血量
-
 		int camp;	 //阵营
 		D3D Axis; //坐标
-
 		float x1;
 		float y1;
 		float x2;
 		float y2;
-
-
+		float 距离;
 	};
 	inline ActorInfo LocalPlayer; //本地
 	inline ActorInfo ActorPlayer; //对象玩家
-	// 在 cheact 命名空间中添加一个新成员
-	inline ActorInfo closestEnemy; // 存储最近敌人信息
+	
+	inline std::vector<ActorInfo> targets; // 存储当前可以瞄准的目标
+	
 }
 
 void fun();
@@ -90,6 +87,6 @@ bool The2DBoxsize();
 void 绘制血条();
 void 绘制骨骼();
 void 骨骼连线(char* Address, int start, int End);
-void 自瞄队列();
+
 void 自瞄();
 D2D Aiming(D3D LocalAxis, char* AimAddress);

@@ -4,7 +4,7 @@
 
 
 //参数1:类名 参数2:标题名 参数3:回调 参数4:字体路径 参数5:字体大小 参数6:垂直同步 参数7:菜单样式 0为黑色,1为白色
-int myimgui::CreateWindow_Violet (LPCSTR class_name, LPCSTR title_name, myimgui::myFun Fun,const char* Fontsname, float Fonts_size, bool Synclnterval, int Menustyle)
+int myimgui::CreateWindow_Violet (LPCSTR class_name, LPCSTR title_name, myimgui::myFun fun,const char* Fontsname, float Fonts_size, bool Synclnterval, int Menustyle)
 {
     gamewindow.ClassName = class_name;
     gamewindow.TitleName = title_name;
@@ -43,7 +43,7 @@ int myimgui::CreateWindow_Violet (LPCSTR class_name, LPCSTR title_name, myimgui:
     ImVec4 clear_color = ImVec4(0.f, 0.f, 0.f, 0.f);
     bool done = false;
     
-    std::thread  陀螺线程(旋转大陀螺);
+    std::thread  工具线程(作弊线程1);
     while (!done)
     {
         MSG msg;
@@ -70,7 +70,7 @@ int myimgui::CreateWindow_Violet (LPCSTR class_name, LPCSTR title_name, myimgui:
         ImGui_ImplWin32_NewFrame();
         ImGui::NewFrame();
         {
-          Fun(); //自定义...绘制区
+          fun(); //自定义...绘制区
         }
         ImGui::Render();
         const float clear_color_with_alpha[4] = { clear_color.x * clear_color.w, clear_color.y * clear_color.w, clear_color.z * clear_color.w, clear_color.w };

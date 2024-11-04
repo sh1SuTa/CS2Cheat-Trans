@@ -16,7 +16,7 @@ namespace Menu
 	inline float Fov=22.f;       //自瞄范围
 	inline bool DrawFov=true;    //绘制自瞄范围
 	inline int Aimplace=6;    //自瞄部位
-	inline int Aimkey=5;      //自瞄热键
+	inline int Aimkey= VK_SHIFT;      //自瞄热键
 	//视觉区
 	inline bool Team;       //是否绘制队友
 	inline bool box=true;        //方框

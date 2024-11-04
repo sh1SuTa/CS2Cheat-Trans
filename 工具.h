@@ -109,3 +109,4 @@ namespace 工具 {
 
 void 改fov角度();
 void 旋转大陀螺();
+void 作弊线程1();
