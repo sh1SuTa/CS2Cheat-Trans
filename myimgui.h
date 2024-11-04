@@ -7,13 +7,15 @@
 #include "ImGui/imstb_rectpack.h"
 #include "ImGui/imstb_textedit.h"
 #include "ImGui/imstb_truetype.h"
-
-#include <d3d11.h>
-#pragma comment(lib,"d3d11.lib")
+#include"工具.h"
 
 #include<iostream>
 #include<Windows.h>
+#include<thread>
 
+
+#include <d3d11.h>
+#pragma comment(lib,"d3d11.lib")
 #include<dwmapi.h>
 #pragma comment(lib,"dwmapi.lib")
 

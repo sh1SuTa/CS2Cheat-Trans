@@ -15,7 +15,8 @@ namespace 工具 {
 
 	inline char* 指向摄像机服务的指针;
 	inline char* fov;
-
+	inline float 初始值 = 0.f;
+	inline char* local_player;
 
 
 
@@ -80,7 +81,7 @@ namespace 工具 {
 				}
 				throw std::runtime_error("Unable to find module");
 			}
-			/*Write content to the specified address*/
+			
 			template< typename T, typename Ptr>
 			T read(const Ptr& ptr) {
 				T buffer{};
@@ -90,7 +91,8 @@ namespace 工具 {
 				throw std::runtime_error("Memory read error");
 			return buffer;
 			}
-			/*Read the content of the specified address*/
+
+			
 			template< typename T, typename Ptr>
 			void write(const Ptr& ptr, const T& value) {
 				T v = value;
@@ -106,3 +108,4 @@ namespace 工具 {
 
 
 void 改fov角度();
+void 旋转大陀螺();

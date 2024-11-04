@@ -50,3 +50,52 @@ void 自瞄()
 		}
 	}
 }
+//自瞄算法
+D2D Aiming(D3D LocalAxis, char* AimAddress)
+{
+	char* Aimindex;
+	D3D ActorAxis;
+	D3D AimAxis;
+	D2D Aimmouse;
+	float P_I = 3.1415926535f;
+
+	//7为目标头部，-1则为6
+	//Aimindex = AimAddress + (Menu::Aimplace-1)  * 32;
+	Aimindex = AimAddress + Menu::Aimplace * 32;
+
+
+	mem::Read(cheat::g_handle, Aimindex, &ActorAxis.x, sizeof(ActorAxis.x));
+	mem::Read(cheat::g_handle, Aimindex + 4, &ActorAxis.y, sizeof(ActorAxis.y));
+	mem::Read(cheat::g_handle, Aimindex + 8, &ActorAxis.z, sizeof(ActorAxis.z));
+
+	/*AimAxis.x = LocalAxis.x - ActorAxis.x;
+	AimAxis.y = LocalAxis.y - ActorAxis.y;*/
+	AimAxis.z = LocalAxis.z - ActorAxis.z;
+	AimAxis.x = ActorAxis.x - LocalAxis.x;
+	AimAxis.y = ActorAxis.y - LocalAxis.y;
+
+
+
+	//第一象限
+	//if (AimAxis.x >= 0 && AimAxis.y >= 0)
+		//Aimmouse.x = atan(AimAxis.y / AimAxis.x) / P_I * 180 + 180;
+	//第二象限
+	//if (AimAxis.x <= 0 && AimAxis.y >= 0)
+		//Aimmouse.x = atan(AimAxis.y / AimAxis.x) / P_I * 180;
+	//第三象限
+	//if (AimAxis.x <= 0 && AimAxis.y <= 0)
+		//Aimmouse.x = atan(AimAxis.y / AimAxis.x) / P_I * 180;
+	//第四象限
+	//if (AimAxis.x >= 0 && AimAxis.y <= 0)
+		//Aimmouse.x = atan(AimAxis.y / AimAxis.x) / P_I * 180 - 180;
+	if (AimAxis.x != 0)
+		Aimmouse.x = atan2(AimAxis.y, AimAxis.x) * 180 / P_I; // 使用 atan2 处理所有象限
+
+	if (AimAxis.z != 0)
+		Aimmouse.y = atan(AimAxis.z / sqrt(AimAxis.x * AimAxis.x + AimAxis.y * AimAxis.y)) * 180 / P_I;
+
+
+	Aimmouse.y = atan(AimAxis.z / sqrt(AimAxis.x * AimAxis.x + AimAxis.y * AimAxis.y)) / P_I * 180;
+	return Aimmouse;
+
+}

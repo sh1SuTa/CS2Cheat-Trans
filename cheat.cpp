@@ -11,9 +11,7 @@ void fun() {
 	cheat::g_size = ImVec2((float)Rect.right,(float) Rect.bottom);
 	cheat::屏幕宽度 = (Rect.right - Rect.left)/2;
 	cheat::屏幕高度 =  (Rect.bottom - Rect.top)/2;
-	
 	ShowImguiMenu();
-
 	Traverse();
 }
 
@@ -21,7 +19,10 @@ bool 绘制测试();
 
 
 void Traverse() {
-	mem::Read(cheat::g_handle, cheat::clientAddress + 0x1A33E30, &cheat::Matrix, sizeof(cheat::Matrix));//本地矩阵
+	mem::Read(cheat::g_handle, cheat::clientAddress + cs2_dumper::offsets::client_dll::dwViewMatrix, &cheat::Matrix, sizeof(cheat::Matrix));//本地矩阵
+	
+	
+	
 	//遍历对象玩家地址
 	for (int i = 0; i < 31; i++)
 	{
@@ -30,6 +31,7 @@ void Traverse() {
 		}
 		//对象玩家地址[0]获取处
 		if (!mem::Read(cheat::g_handle, cheat::clientAddress + 0x01A2A478, &cheat::ActorPlayer.Address[0],8)) {
+		
 			continue;
 		}
 		//对象玩家地址[1]获取处
@@ -44,7 +46,7 @@ void Traverse() {
 		{
 			continue;
 		}
-		改fov角度();
+		
 		//计算2D方框大小
 		The2DBoxsize();
 		//画框
@@ -62,6 +64,7 @@ void Traverse() {
 		}
 		自瞄队列();
 	}
+
 	if (Menu::Aimbot)
 	{
 		自瞄();
@@ -71,6 +74,10 @@ void Traverse() {
 	{
 		ImGui::GetForegroundDrawList()->AddCircle({ cheat::屏幕宽度,cheat::屏幕高度 },Menu::Fov*8,ImColor(255,155,255));
 	}
+	if (Menu::视野角度启用)
+	{
+		改fov角度();
+	}
 }
 
 
@@ -78,7 +85,7 @@ void Traverse() {
 bool ReadLocalPawn() {
 	//基础地址
 	if ( 
-		! mem::Read(cheat::g_handle, cheat::clientAddress + 0x1836BB8, &cheat::LocalPlayer.Address[0], 8)
+		! mem::Read(cheat::g_handle, cheat::clientAddress + cs2_dumper::offsets::client_dll::dwLocalPlayerPawn, &cheat::LocalPlayer.Address[0], 8)
 	) {
 		return false;
 	}
@@ -106,7 +113,7 @@ bool ReadLocalPawn() {
 		return false;
 	}
 	char* 临时骨骼;
-	临时骨骼 = cheat::LocalPlayer.SkeletonAddress[1] + 7 * 32;
+	临时骨骼 = cheat::LocalPlayer.SkeletonAddress[1] + 6 * 32;
 	mem::Read(cheat::g_handle, 临时骨骼, &cheat::LocalPlayer.Axis.x, 4);
 	mem::Read(cheat::g_handle, 临时骨骼+4, &cheat::LocalPlayer.Axis.y, 4);
 	mem::Read(cheat::g_handle, 临时骨骼+8, &cheat::LocalPlayer.Axis.z, 4);
@@ -422,18 +429,6 @@ bool 绘制测试() {
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 //取准星距离
 float calculateDistance(const D2D 准星, const D2D 对象)
 {
@@ -445,52 +440,4 @@ float calculateDistance(const D2D 准星, const D2D 对象)
 	距离 = sqrt(距离_.x * 距离_.x + 距离_.y * 距离_.y);
 	return 距离;
 }
-//自瞄算法
-D2D Aiming(D3D LocalAxis, char* AimAddress)
-{
-	char* Aimindex;
-	D3D ActorAxis;
-	D3D AimAxis;
-	D2D Aimmouse;
-	float P_I = 3.1415926535f;
 
-	//7为目标头部，-1则为6
-	//Aimindex = AimAddress + (Menu::Aimplace-1)  * 32;
-	Aimindex = AimAddress + Menu::Aimplace  * 32;
-	
-
-	mem::Read(cheat::g_handle, Aimindex, &ActorAxis.x, sizeof(ActorAxis.x));
-	mem::Read(cheat::g_handle, Aimindex + 4, &ActorAxis.y, sizeof(ActorAxis.y));
-	mem::Read(cheat::g_handle, Aimindex + 8, &ActorAxis.z, sizeof(ActorAxis.z));
-
-	/*AimAxis.x = LocalAxis.x - ActorAxis.x;
-	AimAxis.y = LocalAxis.y - ActorAxis.y;*/
-	AimAxis.z = LocalAxis.z - ActorAxis.z;
-	AimAxis.x = ActorAxis.x - LocalAxis.x;
-	AimAxis.y = ActorAxis.y - LocalAxis.y;
-	
-
-
-	//第一象限
-	//if (AimAxis.x >= 0 && AimAxis.y >= 0)
-		//Aimmouse.x = atan(AimAxis.y / AimAxis.x) / P_I * 180 + 180;
-	//第二象限
-	//if (AimAxis.x <= 0 && AimAxis.y >= 0)
-		//Aimmouse.x = atan(AimAxis.y / AimAxis.x) / P_I * 180;
-	//第三象限
-	//if (AimAxis.x <= 0 && AimAxis.y <= 0)
-		//Aimmouse.x = atan(AimAxis.y / AimAxis.x) / P_I * 180;
-	//第四象限
-	//if (AimAxis.x >= 0 && AimAxis.y <= 0)
-		//Aimmouse.x = atan(AimAxis.y / AimAxis.x) / P_I * 180 - 180;
-	if (AimAxis.x != 0)
-		Aimmouse.x = atan2(AimAxis.y, AimAxis.x) * 180 / P_I; // 使用 atan2 处理所有象限
-
-	if (AimAxis.z != 0)
-		Aimmouse.y = atan(AimAxis.z / sqrt(AimAxis.x * AimAxis.x + AimAxis.y * AimAxis.y)) * 180 / P_I;
-
-
-	Aimmouse.y = atan(AimAxis.z / sqrt(AimAxis.x * AimAxis.x + AimAxis.y * AimAxis.y)) / P_I * 180;
-	return Aimmouse;
-
-}

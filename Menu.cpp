@@ -48,12 +48,12 @@ void ShowImguiMenu()
             ImGui::Checkbox(u8"自瞄机器人", &Menu::Aimbot);
             ImGui::SliderFloat(u8"FOV", (float*)&Menu::Fov, 1.f, 180.f, "%.0f");
             ImGui::Checkbox(u8"绘制FOV", &Menu::DrawFov);
-            ImGui::RadioButton(u8"头", &Menu::Aimplace, 5);
+            ImGui::RadioButton(u8"头", &Menu::Aimplace, 6);
             ImGui::SameLine(NULL, 15.f);
             ImGui::RadioButton(u8"胸", &Menu::Aimplace, 3);
             ImGui::SameLine(NULL, 15.f);
             ImGui::RadioButton(u8"肚", &Menu::Aimplace, 1);
-            ImGui::RadioButton(u8"M4", &Menu::Aimkey, 5);
+            ImGui::RadioButton(u8"侧键", &Menu::Aimkey, 5);
             ImGui::SameLine(NULL, 15.f);
             ImGui::RadioButton(u8"左键", &Menu::Aimkey, 1);
             ImGui::SameLine(NULL, 15.f);
@@ -67,6 +67,8 @@ void ShowImguiMenu()
             ImGui::Checkbox(u8"自适应方框", &Menu::Adaptivebox);
             ImGui::Checkbox(u8"血量", &Menu::Health);
             ImGui::Checkbox(u8"骨骼", &Menu::Skeleton);
+            ImGui::Checkbox(u8"启用视角FOV角度", &Menu::视野角度启用);
+            ImGui::SliderInt(u8"视野FOV角度", &Menu::视野角度, 10, 170);
         }
         if (Buttonthis == 3)
         {
@@ -74,6 +76,7 @@ void ShowImguiMenu()
             ImGui::RadioButton(u8"开发者骨骼", &Menu::绘制骨骼类型,0);
             ImGui::SameLine(NULL, 15.f);
             ImGui::RadioButton(u8"正常骨骼", &Menu::绘制骨骼类型, 3);
+            ImGui::Checkbox(u8"让自己转起来", &Menu::旋转启用);
 
         }
         ImGui::End();

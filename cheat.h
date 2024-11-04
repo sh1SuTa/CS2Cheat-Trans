@@ -2,11 +2,12 @@
 #include"Mem.h"
 #include"myimgui.h"
 #include "Menu.h"
-
+#include"工具.h"
+#include"offsets.hpp"
 
 #include<cmath>
 #include <iostream>
-#include"工具.h"
+
 
 
 
@@ -22,7 +23,7 @@ struct D3D
 	float x, y, z;
 };
 
-D2D Aiming(D3D LocalAxis, char* AimAddress);
+
 //取准星距离
 float calculateDistance(const D2D 准星, const D2D 对象);
 
@@ -91,3 +92,4 @@ void 绘制骨骼();
 void 骨骼连线(char* Address, int start, int End);
 void 自瞄队列();
 void 自瞄();
+D2D Aiming(D3D LocalAxis, char* AimAddress);

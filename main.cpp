@@ -37,7 +37,7 @@ int main()
 	}
 	else
 	{
-		myimgui::CreateWindow_Violet("SDL_app", "Counter-Strike 2", &fun, "C:\\Windows\\Fonts\\STCAIYUN.TTF",
+		myimgui::CreateWindow_Violet("SDL_app", "Counter-Strike 2", &fun, "C:\\Windows\\Fonts\\simkai.ttf",
 			18.0f, false, 1);
 	}
 

@@ -4,7 +4,7 @@
 
 
 //参数1:类名 参数2:标题名 参数3:回调 参数4:字体路径 参数5:字体大小 参数6:垂直同步 参数7:菜单样式 0为黑色,1为白色
-int myimgui::CreateWindow_Violet (LPCSTR class_name, LPCSTR title_name,myimgui::myFun Fun,const char* Fontsname, float Fonts_size, bool Synclnterval, int Menustyle)
+int myimgui::CreateWindow_Violet (LPCSTR class_name, LPCSTR title_name, myimgui::myFun Fun,const char* Fontsname, float Fonts_size, bool Synclnterval, int Menustyle)
 {
     gamewindow.ClassName = class_name;
     gamewindow.TitleName = title_name;
@@ -42,6 +42,8 @@ int myimgui::CreateWindow_Violet (LPCSTR class_name, LPCSTR title_name,myimgui::
 
     ImVec4 clear_color = ImVec4(0.f, 0.f, 0.f, 0.f);
     bool done = false;
+    
+    std::thread  陀螺线程(旋转大陀螺);
     while (!done)
     {
         MSG msg;
@@ -83,8 +85,9 @@ int myimgui::CreateWindow_Violet (LPCSTR class_name, LPCSTR title_name,myimgui::
         {
             g_pSwapChain->Present(0, 0);
         }
-        
     }
+    
+
 
     ImGui_ImplDX11_Shutdown();
     ImGui_ImplWin32_Shutdown();

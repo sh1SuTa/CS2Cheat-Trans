@@ -6,7 +6,7 @@ WINUSERAPI SHORT WINAPI GetAsyncKeyState(int vKey);
 
 namespace mem
 {
-    inline char* GetModule(DWORD PID, const wchar_t* 妯″潡鍚嶇О)
+    inline char* GetModule(DWORD PID, const wchar_t* 模块名称)
     {
         HANDLE handle = CreateToolhelp32Snapshot(TH32CS_SNAPMODULE | TH32CS_SNAPMODULE32, PID);
         if (handle == INVALID_HANDLE_VALUE)
@@ -26,9 +26,10 @@ namespace mem
 
         do
         {
-            //鍒ゆ柇妯″潡鍚嶆槸鍚︾浉绛?            if (wcscmp(妯″潡鍚嶇О, module_info.szModule) == 0)
+            //判断模块名是否相等
+            if (wcscmp(模块名称, module_info.szModule) == 0)
             {
-                //濡傛灉鎵惧埌浜嗗氨鎵撳嵃妯″潡鐨勫湴鍧€ 骞惰繑鍥炶妯″潡鐨勫湴鍧€
+                //如果找到了就打印模块的地址 并返回该模块的地址
                 //printf("%ws %llx\n", module_info.szModule, module_info.modBaseAddr);
                 CloseHandle(handle);
                 return (char*)(module_info.modBaseAddr);
@@ -38,18 +39,17 @@ namespace mem
         CloseHandle(handle);
         return nullptr;
     }
-
-    inline bool Read(HANDLE 杩涚▼鍙ユ焺, char* 鍐呭瓨鍦板潃, void* 瀛樻斁鎸囬拡, int 娆茶鍙栧瓧鑺?
+    inline bool Read(HANDLE 进程句柄, char* 内存地址, void* 存放指针, int 欲读取字节)
     {
-        SIZE_T 缂撳啿鍖?
-        if (ReadProcessMemory(杩涚▼鍙ユ焺, 鍐呭瓨鍦板潃, 瀛樻斁鎸囬拡, 娆茶鍙栧瓧鑺? &缂撳啿鍖?)
+        SIZE_T 缓冲区;
+        if (ReadProcessMemory(进程句柄, 内存地址, 存放指针, 欲读取字节, &缓冲区))
             return true;
         return false;
     }
-    inline bool Write(HANDLE 杩涚▼鍙ユ焺, char* 鍐呭瓨鍦板潃, void* 鍐欏叆鏁版嵁, int 娆插啓鍏ュ瓧鑺?
+    inline bool Write(HANDLE 进程句柄, char* 内存地址, void* 写入数据, int 欲写入字节)
     {
-        SIZE_T 缂撳啿鍖?
-        if (WriteProcessMemory(杩涚▼鍙ユ焺, 鍐呭瓨鍦板潃, 鍐欏叆鏁版嵁, 娆插啓鍏ュ瓧鑺? &缂撳啿鍖?)
+        SIZE_T 缓冲区;
+        if (WriteProcessMemory(进程句柄, 内存地址, 写入数据, 欲写入字节, &缓冲区))
             return true;
         return false;
     }

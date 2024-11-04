@@ -15,15 +15,17 @@ namespace Menu
 	inline bool Aimbot=true;     //自瞄
 	inline float Fov=22.f;       //自瞄范围
 	inline bool DrawFov=true;    //绘制自瞄范围
-	inline int Aimplace=5;    //自瞄部位
+	inline int Aimplace=6;    //自瞄部位
 	inline int Aimkey=5;      //自瞄热键
 	//视觉区
 	inline bool Team;       //是否绘制队友
-	inline bool box;        //方框
+	inline bool box=true;        //方框
 	inline bool Adaptivebox;//自适应方框
 	inline bool Health;		//血量
-	inline bool Skeleton = true;	//骨骼
+	inline bool Skeleton = false;	//骨骼
 	inline int 绘制骨骼类型 = 0;// 0：骨骼坐标
-	
+	inline bool 视野角度启用 = false;
+	inline int 视野角度 = 90;
+	inline bool 旋转启用;
 
 }
