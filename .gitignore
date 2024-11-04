@@ -1,7 +1,7 @@
 ﻿# Visual Studio files
 .vs/
 *.vcxproj.user
-*.vcxproj.filters
+
 *.sdf
 *.suo
 *.ipch
