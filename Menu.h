@@ -23,7 +23,7 @@ namespace Menu
 	inline bool Adaptivebox;//自适应方框
 	inline bool Health;		//血量
 	inline bool Skeleton = false;	//骨骼
-	inline int 绘制骨骼类型 = 0;// 0：骨骼坐标
+	inline int 绘制骨骼类型 = 3;// 0：开发骨骼，3：正常骨骼
 	inline bool 视野角度启用 = false;
 	inline int 视野角度 = 90;
 	inline bool 旋转启用;

@@ -125,8 +125,5 @@
     <ClInclude Include="透视.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="自瞄功能.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

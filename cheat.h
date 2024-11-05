@@ -32,7 +32,8 @@ float calculateDistance(const D2D 准星, const D2D 对象);
 namespace cheat {
 
 	inline char* EnterAimAddress[2];
-	inline float ActorDistance;
+	inline float ActorDistance[2] = { 99999.f,999999.f};
+
 
 	inline float 屏幕宽度;
 	inline float 屏幕高度;

@@ -48,8 +48,6 @@ void Traverse() {
 		
 		//计算2D方框大小
 		The2DBoxsize();
-		cheat::ActorInfo target;
-		cheat::ActorDistance = calculateDistance({ cheat::屏幕宽度,cheat::屏幕高度 }, { screen[0],screen[1] });
 		
 		//画框
 		if (Menu::box)
@@ -126,9 +124,7 @@ bool ReadLocalPawn() {
 //读取对象玩家Pawn
 bool ReadActorPawn() {
 	//血量
-	if (
-		!mem::Read(cheat::g_handle, cheat::ActorPlayer.Address[1] + 0xAB4, &cheat::ActorPlayer.Health, 4)
-		) {
+	if (!mem::Read(cheat::g_handle, cheat::ActorPlayer.Address[1] + 0xAB4, &cheat::ActorPlayer.Health, 4)) {
 		return false;
 	}
 	if (cheat::ActorPlayer.Health <= 0 || cheat::ActorPlayer.Health>100)

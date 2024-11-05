@@ -11,13 +11,16 @@ void 自瞄队列()
 	if (WorldScreen2d(World, screen))
 	{
 		//计算准星到目标的距离
-		cheat::ActorDistance = calculateDistance({ cheat::屏幕宽度,cheat::屏幕高度 }, { screen[0],screen[1] });
-
-
-		cheat::EnterAimAddress[0] = cheat::ActorPlayer.Address[1];
-		//对象骨骼地址给EnterAimAddress[1]
-		cheat::EnterAimAddress[1] = cheat::ActorPlayer.SkeletonAddress[1];
-
+		cheat::ActorDistance[0] = calculateDistance({cheat::屏幕宽度,cheat::屏幕高度}, {screen[0],screen[1]});
+		//找出最小距离
+		if (cheat::ActorDistance[0]<= cheat::ActorDistance[1])
+		{
+			
+			cheat::ActorDistance[1] = cheat::ActorDistance[0];
+			cheat::EnterAimAddress[0] = cheat::ActorPlayer.Address[1];
+			//对象骨骼地址给EnterAimAddress[1]
+			cheat::EnterAimAddress[1] = cheat::ActorPlayer.SkeletonAddress[1];
+		}
 	}
 }
 
@@ -39,7 +42,7 @@ void 自瞄()
 	{
 		cheat::FOV = Menu::Fov * 8;
 		// 判断是否在 FOV 范围内
-		if (cheat::FOV > cheat::ActorDistance)
+		if (cheat::FOV > cheat::ActorDistance[1])
 		{
 			cheat::Aimmouse = Aiming(cheat::LocalPlayer.Axis, cheat::AimAddress[1]);
 
@@ -50,14 +53,11 @@ void 自瞄()
 			}
 		}
 	}
+	cheat::ActorDistance[1] = 99999.f;
 }
-void 自瞄优化() {
-	if(cheat::LocalPlayer.Health <= 0&& cheat::LocalPlayer.Health>100) {
-		return; // 本地玩家死亡时不进行瞄准
-	}
-	float 最小距离 = FLT_MAX; // 初始化最小距离
 
-}
+
+
 //自瞄算法
 D2D Aiming(D3D LocalAxis, char* AimAddress)
 {
