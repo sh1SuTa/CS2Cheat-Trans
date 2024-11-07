@@ -73,3 +73,71 @@ bool 计算2D方框大小() {
 	cheat::ActorPlayer.y2 = 屏幕坐标[1];
 	return true;
 }
+
+//void 绘制自适应方框() {
+//	D2D 左边框 = 获取左边框();
+//	D2D 右边框 = 获取右边框();
+//	D2D 上边框 = 获取上边框();
+//	D2D 下边框 = 获取下边框();
+//
+//	ImGui::GetForegroundDrawList()->AddLine({ 左边框.x,左边框.y},{ 左边框.x,下边框.y },ImColor(255,0,0));
+//	
+//
+//}
+//D2D 获取左边框() {
+//	char* 左地址 = cheat::ActorPlayer.SkeletonAddress[1] + 14 * 32;
+//	D3D 左坐标;
+//	float leftscreen[2];
+//	mem::Read(cheat::g_handle, 左地址, &左坐标.x, 4);
+//	mem::Read(cheat::g_handle, 左地址 + 4, &左坐标.y, 4);
+//	mem::Read(cheat::g_handle, 左地址 + 8, &左坐标.z, 4);
+//	float leftworld[3] = { 左坐标.x ,左坐标.y,左坐标.z };
+//	if (!WorldScreen2d(leftworld, leftscreen))
+//	{
+//		return { 0,0 };
+//	}
+//	return { leftscreen[0],leftscreen[1] };
+//}
+//D2D 获取右边框() {
+//	char* 右地址 = cheat::ActorPlayer.SkeletonAddress[1] + 9 * 32;
+//	D3D 右坐标;
+//	float rightscreen[2];
+//	mem::Read(cheat::g_handle, 右地址, &右坐标.x, 4);
+//	mem::Read(cheat::g_handle, 右地址 + 4, &右坐标.y, 4);
+//	mem::Read(cheat::g_handle, 右地址 + 8, &右坐标.z, 4);
+//	float rightworld[3] = { 右坐标.x ,右坐标.y,右坐标.z };
+//	if (!WorldScreen2d(rightworld, rightscreen))
+//	{
+//		return { 0,0 };
+//	}
+//	return  { rightscreen[0],rightscreen[1] };
+//}
+//D2D 获取上边框() {
+//	char* 上地址 = cheat::ActorPlayer.SkeletonAddress[1] + 6 * 32;
+//	D3D 上坐标;
+//	float topscreen[2];
+//	mem::Read(cheat::g_handle, 上地址, &上坐标.x, 4);
+//	mem::Read(cheat::g_handle, 上地址 + 4, &上坐标.y, 4);
+//	mem::Read(cheat::g_handle, 上地址 + 8, &上坐标.z, 4);
+//	float topworld[3] = { 上坐标.x ,上坐标.y,上坐标.z };
+//	if (!WorldScreen2d(topworld, topscreen))
+//	{
+//		return { 0,0 };
+//	}
+//	return  { topscreen[0],topscreen[1] };
+//}
+//D2D 获取下边框() {
+//	char* 下地址 = cheat::ActorPlayer.SkeletonAddress[1] + 29 * 32;
+//	D3D 下坐标;
+//	float bottomscreen[2];
+//	mem::Read(cheat::g_handle, 下地址, &下坐标.x, 4);
+//	mem::Read(cheat::g_handle, 下地址 + 4, &下坐标.y, 4);
+//	mem::Read(cheat::g_handle, 下地址 + 8, &下坐标.z, 4);
+//	float bottomworld[3] = { 下坐标.x ,下坐标.y,下坐标.z };
+//	if (!WorldScreen2d(bottomworld, bottomscreen))
+//	{
+//		return { 0,0 };
+//	}
+//	D2D 临时 = { bottomscreen[0],bottomscreen[1] };
+//	return 临时;
+//}

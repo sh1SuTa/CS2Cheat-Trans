@@ -29,7 +29,7 @@ void Traverse() {
 			continue;
 		}
 		//对象玩家地址[0]获取处
-		if (!mem::Read(cheat::g_handle, cheat::clientAddress + 0x01A2A478, &cheat::ActorPlayer.Address[0],8)) {
+		if (!mem::Read(cheat::g_handle, cheat::clientAddress + 0x01A36118, &cheat::ActorPlayer.Address[0],8)) {
 		
 			continue;
 		}
@@ -50,9 +50,13 @@ void Traverse() {
 		The2DBoxsize();
 		
 		//画框
-		if (Menu::box)
+		if (Menu::box==1)
 		{
-			Draw2DBox();
+			绘制框框();
+		}
+		else if (Menu::box == 2)
+		{
+			//绘制自适应方框();
 		}
 		if (Menu::Health)
 		{
@@ -117,7 +121,6 @@ bool ReadLocalPawn() {
 	mem::Read(cheat::g_handle, 临时骨骼, &cheat::LocalPlayer.Axis.x, 4);
 	mem::Read(cheat::g_handle, 临时骨骼+4, &cheat::LocalPlayer.Axis.y, 4);
 	mem::Read(cheat::g_handle, 临时骨骼+8, &cheat::LocalPlayer.Axis.z, 4);
-	//printf("Skeleton地址：%p \n", cheat::LocalPlayer.SkeletonAddress[1]);
 	return true;
 }
 
@@ -239,60 +242,6 @@ bool The2DBoxsize() {
 	return true;
 }
 
-
-//画一个好看的框框 
-void Draw2DBox() {
-
-	ImDrawList* drawList = ImGui::GetForegroundDrawList();
-	// 绘制上边框（蓝色和粉色）
-	drawList->AddLine(
-		{ cheat::ActorPlayer.x1, cheat::ActorPlayer.y1 },
-		{ cheat::ActorPlayer.x2, cheat::ActorPlayer.y1 },
-		ImColor(0, 153, 255) // 蓝色
-	);
-	drawList->AddLine(
-		{ cheat::ActorPlayer.x1 + (cheat::ActorPlayer.x2 - cheat::ActorPlayer.x1) * 0.5f, cheat::ActorPlayer.y1 },
-		{ cheat::ActorPlayer.x2, cheat::ActorPlayer.y1 },
-		ImColor(255, 192, 203) // 粉色
-	);
-
-	// 绘制左边框（蓝色到白色）
-	drawList->AddLine(
-		{ cheat::ActorPlayer.x1, cheat::ActorPlayer.y1 },
-		{ cheat::ActorPlayer.x1, cheat::ActorPlayer.y2 },
-		ImColor(0, 153, 255) // 蓝色
-	);
-	drawList->AddLine(
-		{ cheat::ActorPlayer.x1, cheat::ActorPlayer.y1 + (cheat::ActorPlayer.y2 - cheat::ActorPlayer.y1) * 0.5f },
-		{ cheat::ActorPlayer.x1, cheat::ActorPlayer.y2 },
-		ImColor(255, 255, 255) // 白色
-	);
-
-	// 绘制右边框（粉色到白色）
-	drawList->AddLine(
-		{ cheat::ActorPlayer.x2, cheat::ActorPlayer.y1 },
-		{ cheat::ActorPlayer.x2, cheat::ActorPlayer.y2 },
-		ImColor(255, 192, 203) // 粉色
-	);
-	drawList->AddLine(
-		{ cheat::ActorPlayer.x2, cheat::ActorPlayer.y1 + (cheat::ActorPlayer.y2 - cheat::ActorPlayer.y1) * 0.5f },
-		{ cheat::ActorPlayer.x2, cheat::ActorPlayer.y2 },
-		ImColor(255, 255, 255) // 白色
-	);
-
-	// 绘制下边框（白色到粉色）
-	drawList->AddLine(
-		{ cheat::ActorPlayer.x1, cheat::ActorPlayer.y2 },
-		{ cheat::ActorPlayer.x2, cheat::ActorPlayer.y2 },
-		ImColor(255, 255, 255) // 白色
-	);
-	drawList->AddLine(
-		{ cheat::ActorPlayer.x2 - (cheat::ActorPlayer.x2 - cheat::ActorPlayer.x1) * 0.5f, cheat::ActorPlayer.y2 },
-		{ cheat::ActorPlayer.x2, cheat::ActorPlayer.y2 },
-		ImColor(255, 192, 203) // 粉色
-	);
-
-}
 
 
 void 绘制血条() {

@@ -44,7 +44,7 @@ void ShowImguiMenu()
         //绘制菜单
         if (Buttonthis == 1)
         {
-            ImGui::TextColored(ImColor(128, 128, 128), u8"自瞄机器人(?)");
+            ImGui::TextColored(ImColor(255, 0, 0,47), u8"自瞄机器人(+)");
             ImGui::Checkbox(u8"自瞄机器人", &Menu::Aimbot);
             ImGui::SliderFloat(u8"FOV", (float*)&Menu::Fov, 1.f, 180.f, "%.0f");
             ImGui::Checkbox(u8"绘制FOV", &Menu::DrawFov);
@@ -61,13 +61,16 @@ void ShowImguiMenu()
         }
         if (Buttonthis == 2)
         {
-            ImGui::TextColored(ImColor(128, 128, 128), u8"视觉(?)");
+            ImGui::TextColored(ImColor(0, 217, 255), u8"视觉(O)");
             ImGui::Checkbox(u8"队伍", &Menu::Team);
-            ImGui::Checkbox(u8"方框", &Menu::box);
-            ImGui::Checkbox(u8"自适应方框", &Menu::Adaptivebox);
+            ImGui::RadioButton(u8"关闭", &Menu::box, 0);
+            ImGui::SameLine(NULL, 15.f);
+            ImGui::RadioButton(u8"方框", &Menu::box, 1);
+            ImGui::SameLine(NULL, 15.f);
+            ImGui::RadioButton(u8"自适应方框", &Menu::box, 2);
             ImGui::Checkbox(u8"血量", &Menu::Health);
             ImGui::Checkbox(u8"骨骼", &Menu::Skeleton);
-            ImGui::Checkbox(u8"启用视角FOV角度", &Menu::视野角度启用);
+            ImGui::Checkbox(u8"启用FOV(请务必在对局中)", &Menu::视野角度启用);
             ImGui::SliderInt(u8"视野FOV角度", &Menu::视野角度, 10, 170);
         }
         if (Buttonthis == 3)

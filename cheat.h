@@ -5,6 +5,7 @@
 #include"工具.h"
 #include"offsets.hpp"
 #include"自瞄功能.h"
+#include"透视.h"
 
 #include<cmath>
 #include <iostream>
@@ -81,13 +82,11 @@ bool ReadLocalPawn();
 bool ReadActorPawn();
 //三维转二维
 bool WorldScreen2d(_In_ float world[3], _Out_ float screen[2]);
-//绘制2D方框
-void Draw2DBox();
-//计算2D方框大小
-bool The2DBoxsize();
+
+
 void 绘制血条();
 void 绘制骨骼();
 void 骨骼连线(char* Address, int start, int End);
-
+bool The2DBoxsize();
 void 自瞄();
 D2D Aiming(D3D LocalAxis, char* AimAddress);

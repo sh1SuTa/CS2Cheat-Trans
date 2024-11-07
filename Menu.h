@@ -19,7 +19,7 @@ namespace Menu
 	inline int Aimkey= VK_SHIFT;      //自瞄热键
 	//视觉区
 	inline bool Team;       //是否绘制队友
-	inline bool box=true;        //方框
+	inline int box=1;        //方框
 	inline bool Adaptivebox;//自适应方框
 	inline bool Health;		//血量
 	inline bool Skeleton = false;	//骨骼

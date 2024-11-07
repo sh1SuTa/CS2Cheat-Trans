@@ -35,7 +35,7 @@ void 改fov角度2() {
 void 旋转大陀螺() {
     
             float 转速 = 1.f;
-            mem::Write(cheat::g_handle, cheat::clientAddress + 0x1A3DCC4, &工具::初始值, sizeof(工具::初始值));
+            mem::Write(cheat::g_handle, cheat::clientAddress + 0x1A49964, &工具::初始值, sizeof(工具::初始值));
             工具::初始值 = 工具::初始值 + 转速;
             if (工具::初始值 == 180)
             {
