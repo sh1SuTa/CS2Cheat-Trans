@@ -49,15 +49,7 @@ void Traverse() {
 		//计算2D方框大小
 		The2DBoxsize();
 		
-		//画框
-		if (Menu::box==1)
-		{
-			绘制框框();
-		}
-		else if (Menu::box == 2)
-		{
-			//绘制自适应方框();
-		}
+		
 		if (Menu::Health)
 		{
 			绘制血条();
