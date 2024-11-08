@@ -48,6 +48,9 @@ void Traverse() {
 		
 		//计算2D方框大小
 		The2DBoxsize();
+		if (Menu::box == 1) {
+			绘制框框();
+		}
 		
 		
 		if (Menu::Health)

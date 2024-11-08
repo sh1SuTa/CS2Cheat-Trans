@@ -44,7 +44,7 @@ int myimgui::CreateWindow_Violet (LPCSTR class_name, LPCSTR title_name, myimgui:
     bool done = false;
     
     std::thread  工具线程(作弊线程1);
-    std::thread 透视线程(绘制自适应方框);
+    //std::thread 透视线程(透视绘制);
     while (!done)
     {
         MSG msg;

@@ -151,16 +151,14 @@ void 绘制自适应方框() {
 }
 
 void 透视绘制() {
-	if (Menu::box == 1) {
-		绘制框框();
+	while (true) {
+		if (Menu::box == 1) {
+			绘制框框();
+		}
+		else if (Menu::box == 2)
+		{
+			绘制自适应方框();
+		}
+		
 	}
-	else if(Menu::box == 2)
-	{
-		绘制自适应方框();
-	}
-	else
-	{
-		return;
-	}
-
 }
