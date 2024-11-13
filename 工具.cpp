@@ -11,7 +11,7 @@ void 改fov角度() {
     
     //寻找dll模块
     auto client = cs2.get_module_handle(TEXT("client.dll"));
-    std::cout << "寻找dll模块完成："<<client << std::endl;
+    std::cout << XorStr("寻找dll模块完成：")<<client << std::endl;
     //addr64 8字节的无符号long long
     auto local_player = cs2.read<工具::addr64>(client + cs2_dumper::offsets::client_dll::dwLocalPlayerPawn);
     
@@ -23,7 +23,7 @@ void 改fov角度() {
     //cs2.write(fov_addr, Menu::视野角度);
 
     mem::Write(cheat::g_handle, (CHAR*)fov_addr, &Menu::视野角度, sizeof(Menu::视野角度));
-    std::cout << "写入地址："<< fov_addr << std::endl;
+    
     
 
 }
@@ -35,7 +35,7 @@ void 改fov角度2() {
 void 旋转大陀螺() {
     
             float 转速 = 1.f;
-            mem::Write(cheat::g_handle, cheat::clientAddress + 0x1A49964, &工具::初始值, sizeof(工具::初始值));
+            mem::Write(cheat::g_handle, cheat::clientAddress + 0x1A4A984, &工具::初始值, sizeof(工具::初始值));
             工具::初始值 = 工具::初始值 + 转速;
             if (工具::初始值 == 180)
             {

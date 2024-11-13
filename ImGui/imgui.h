@@ -21,7 +21,7 @@
 //   please post in https://github.com/ocornut/imgui/discussions if you cannot find a solution in resources above.
 
 // Library Version
-// (Integer encoded as XYYZZ for use in #if preprocessor conditionals, e.g. '#if IMGUI_VERSION_NUM >= 12345')
+
 #define IMGUI_VERSION       "1.89.6"
 #define IMGUI_VERSION_NUM   18960
 #define IMGUI_HAS_TABLE

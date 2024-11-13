@@ -125,5 +125,8 @@
     <ClInclude Include="透视.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="工具类\XorStr.h">
+      <Filter>工具类</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

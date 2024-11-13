@@ -1,10 +1,13 @@
-﻿# 鑷姩妫€娴嬫崲琛岀鏍煎紡
+﻿
 * text=auto
 
 
-*.cpp text eol=auto
-*.hpp text eol=auto
-*.ini text eol=auto
+*.cpp text eol=lf
+
+*.hpp text eol=lf
+*.ini text eol=lf
 
 
-*.h text eol=auto
+*.h text eol=lf
+
+ImGui/**/*.h eol=auto

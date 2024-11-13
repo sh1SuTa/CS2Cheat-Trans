@@ -18,6 +18,7 @@ void fun() {
 bool 绘制测试();
 
 
+
 void Traverse() {
 	//本地矩阵
 	mem::Read(cheat::g_handle, cheat::clientAddress + cs2_dumper::offsets::client_dll::dwViewMatrix, &cheat::Matrix, sizeof(cheat::Matrix));
@@ -29,7 +30,7 @@ void Traverse() {
 			continue;
 		}
 		//对象玩家地址[0]获取处
-		if (!mem::Read(cheat::g_handle, cheat::clientAddress + 0x01A36118, &cheat::ActorPlayer.Address[0],8)) {
+		if (!mem::Read(cheat::g_handle, cheat::clientAddress + 0x01A37138, &cheat::ActorPlayer.Address[0],8)) {
 		
 			continue;
 		}
@@ -48,6 +49,7 @@ void Traverse() {
 		
 		//计算2D方框大小
 		The2DBoxsize();
+
 		if (Menu::box == 1) {
 			绘制框框();
 		}

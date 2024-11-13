@@ -81,11 +81,11 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <TargetName>Violet_v1.0</TargetName>
+    <TargetName>Photo_v1.0</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <TargetName>Violet_v1.0</TargetName>
+    <TargetName>Photo_v1.0</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -179,6 +179,7 @@
     <ClInclude Include="myimgui.h" />
     <ClInclude Include="offsets.hpp" />
     <ClInclude Include="工具.h" />
+    <ClInclude Include="工具类\XorStr.h" />
     <ClInclude Include="透视.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
