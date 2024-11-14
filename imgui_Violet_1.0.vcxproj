@@ -165,7 +165,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cheat.h" />
-    <ClInclude Include="client_dll.hpp" />
     <ClInclude Include="ImGui\imconfig.h" />
     <ClInclude Include="ImGui\imgui.h" />
     <ClInclude Include="ImGui\imgui_impl_dx11.h" />
@@ -177,9 +176,29 @@
     <ClInclude Include="Mem.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="myimgui.h" />
-    <ClInclude Include="offsets.hpp" />
+    <ClInclude Include="output\animationsystem_dll.hpp" />
+    <ClInclude Include="output\buttons.hpp" />
+    <ClInclude Include="output\client_dll.hpp" />
+    <ClInclude Include="output\engine2_dll.hpp" />
+    <ClInclude Include="output\host_dll.hpp" />
+    <ClInclude Include="output\interfaces.hpp" />
+    <ClInclude Include="output\materialsystem2_dll.hpp" />
+    <ClInclude Include="output\networksystem_dll.hpp" />
+    <ClInclude Include="output\offsets.hpp" />
+    <ClInclude Include="output\panorama_dll.hpp" />
+    <ClInclude Include="output\particles_dll.hpp" />
+    <ClInclude Include="output\pulse_system_dll.hpp" />
+    <ClInclude Include="output\rendersystemdx11_dll.hpp" />
+    <ClInclude Include="output\resourcesystem_dll.hpp" />
+    <ClInclude Include="output\scenesystem_dll.hpp" />
+    <ClInclude Include="output\schemasystem_dll.hpp" />
+    <ClInclude Include="output\server_dll.hpp" />
+    <ClInclude Include="output\soundsystem_dll.hpp" />
+    <ClInclude Include="output\vphysics2_dll.hpp" />
+    <ClInclude Include="output\worldrenderer_dll.hpp" />
     <ClInclude Include="工具.h" />
     <ClInclude Include="工具类\XorStr.h" />
+    <ClInclude Include="视角.h" />
     <ClInclude Include="透视.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

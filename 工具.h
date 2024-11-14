@@ -1,8 +1,8 @@
 ﻿#pragma once
 #include"cheat.h"
 #include"Mem.h"
-#include"offsets.hpp"
-#include"client_dll.hpp"
+#include"output/offsets.hpp"
+#include"output/client_dll.hpp"
 #include"工具类/XorStr.h"
 
 #include <Windows.h>

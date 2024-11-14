@@ -12,6 +12,9 @@
 *.tlog
 *.lastbuildstate
 *.log
+*.cs
+*.json
+*.rs
 
 # Build output
 x64/

@@ -30,7 +30,7 @@ void Traverse() {
 			continue;
 		}
 		//对象玩家地址[0]获取处
-		if (!mem::Read(cheat::g_handle, cheat::clientAddress + 0x01A37138, &cheat::ActorPlayer.Address[0],8)) {
+		if (!mem::Read(cheat::g_handle, cheat::clientAddress + 0x01A48B18, &cheat::ActorPlayer.Address[0],8)) {
 		
 			continue;
 		}

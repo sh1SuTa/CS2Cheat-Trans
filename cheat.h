@@ -3,16 +3,14 @@
 #include"myimgui.h"
 #include "Menu.h"
 #include"工具.h"
-#include"offsets.hpp"
+#include"output/offsets.hpp"
 #include"自瞄功能.h"
 #include"透视.h"
+#include"视角.h"
 
 #include<cmath>
 #include <iostream>
 #include<vector>
-
-
-
 
 
 

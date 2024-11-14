@@ -25,11 +25,11 @@
     <Filter Include="Menu">
       <UniqueIdentifier>{db42c215-8db1-435d-a610-08a32b2cb0c4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="实体类">
-      <UniqueIdentifier>{414364b6-fea3-443e-895e-134ed03aa946}</UniqueIdentifier>
-    </Filter>
     <Filter Include="工具类">
       <UniqueIdentifier>{e58f54e6-1b0d-4c19-a5e7-b5fabce4b4ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="output">
+      <UniqueIdentifier>{d762c083-3653-4e42-9e74-adf98949ac8c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -116,17 +116,74 @@
     <ClInclude Include="工具.h">
       <Filter>工具类</Filter>
     </ClInclude>
-    <ClInclude Include="client_dll.hpp">
-      <Filter>实体类</Filter>
-    </ClInclude>
-    <ClInclude Include="offsets.hpp">
-      <Filter>实体类</Filter>
-    </ClInclude>
     <ClInclude Include="透视.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="工具类\XorStr.h">
       <Filter>工具类</Filter>
+    </ClInclude>
+    <ClInclude Include="output\worldrenderer_dll.hpp">
+      <Filter>output</Filter>
+    </ClInclude>
+    <ClInclude Include="output\vphysics2_dll.hpp">
+      <Filter>output</Filter>
+    </ClInclude>
+    <ClInclude Include="output\soundsystem_dll.hpp">
+      <Filter>output</Filter>
+    </ClInclude>
+    <ClInclude Include="output\server_dll.hpp">
+      <Filter>output</Filter>
+    </ClInclude>
+    <ClInclude Include="output\schemasystem_dll.hpp">
+      <Filter>output</Filter>
+    </ClInclude>
+    <ClInclude Include="output\scenesystem_dll.hpp">
+      <Filter>output</Filter>
+    </ClInclude>
+    <ClInclude Include="output\resourcesystem_dll.hpp">
+      <Filter>output</Filter>
+    </ClInclude>
+    <ClInclude Include="output\rendersystemdx11_dll.hpp">
+      <Filter>output</Filter>
+    </ClInclude>
+    <ClInclude Include="output\pulse_system_dll.hpp">
+      <Filter>output</Filter>
+    </ClInclude>
+    <ClInclude Include="output\particles_dll.hpp">
+      <Filter>output</Filter>
+    </ClInclude>
+    <ClInclude Include="output\panorama_dll.hpp">
+      <Filter>output</Filter>
+    </ClInclude>
+    <ClInclude Include="output\networksystem_dll.hpp">
+      <Filter>output</Filter>
+    </ClInclude>
+    <ClInclude Include="output\materialsystem2_dll.hpp">
+      <Filter>output</Filter>
+    </ClInclude>
+    <ClInclude Include="output\host_dll.hpp">
+      <Filter>output</Filter>
+    </ClInclude>
+    <ClInclude Include="output\engine2_dll.hpp">
+      <Filter>output</Filter>
+    </ClInclude>
+    <ClInclude Include="output\client_dll.hpp">
+      <Filter>output</Filter>
+    </ClInclude>
+    <ClInclude Include="output\animationsystem_dll.hpp">
+      <Filter>output</Filter>
+    </ClInclude>
+    <ClInclude Include="output\offsets.hpp">
+      <Filter>output</Filter>
+    </ClInclude>
+    <ClInclude Include="output\interfaces.hpp">
+      <Filter>output</Filter>
+    </ClInclude>
+    <ClInclude Include="output\buttons.hpp">
+      <Filter>output</Filter>
+    </ClInclude>
+    <ClInclude Include="视角.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
