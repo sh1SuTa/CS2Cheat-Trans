@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2024-11-14 09:58:28.582319100 UTC
+// 2024-11-20 06:26:11.349845700 UTC
 
 #pragma once
 
@@ -89,7 +89,7 @@ namespace cs2_dumper {
             namespace CSSDSMsg_ViewTargetList {
                 constexpr std::ptrdiff_t m_viewId = 0x0; // 
                 constexpr std::ptrdiff_t m_ViewName = 0x10; // 
-                constexpr std::ptrdiff_t m_Targets = 0x18; // CUtlVector<CSSDSMsg_ViewTarget>
+                constexpr std::ptrdiff_t m_Targets = 0x18; // 
             }
             // Parent: None
             // Field count: 2
@@ -106,7 +106,7 @@ namespace cs2_dumper {
             // Metadata:
             // MGetKV3ClassDefaults
             namespace CSSDSMsg_EndFrame {
-                constexpr std::ptrdiff_t m_Views = 0x0; // CUtlVector<CSSDSEndFrameViewInfo>
+                constexpr std::ptrdiff_t m_Views = 0x0; // 
             }
         }
     }

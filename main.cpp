@@ -20,7 +20,6 @@ void RandomTitle()
 	SetConsoleTitle(title);
 }
 void initGame() {
-	
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	srand((unsigned)time(NULL));
 	RandomTitle();
@@ -43,7 +42,6 @@ void initGame() {
 	printf("pid地址：%d\n", cheat::g_pid);
 	printf("clientAddress地址：%p\n", cheat::clientAddress);
 	SetConsoleTextAttribute(hConsole, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
-
 }
 
 
@@ -54,7 +52,8 @@ int main()
 	initGame();
 	if (国服==1)
 	{
-		myimgui::CreateWindow_Violet("SDL_app", "反恐精英：全球攻势", &fun, "C:\\Windows\\Fonts\\simkai.ttf",
+		std::cout << XorStr("已找到国服窗口") << std::endl;
+		myimgui::CreateWindow_Violet(XorStr("SDL_app"), "反恐精英：全球攻势", &fun, "C:\\Windows\\Fonts\\simkai.ttf",
 			18.0f, false, 1);
 	}
 	else

@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2024-11-14 09:58:28.582319100 UTC
+// 2024-11-20 06:26:11.349845700 UTC
 
 #pragma once
 
@@ -1351,7 +1351,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_nSnapshotTrajectoryEffectIndex = 0x11C0; // 
                 constexpr std::ptrdiff_t m_hSnapshotTrajectoryParticleSnapshot = 0x11C8; // 
                 constexpr std::ptrdiff_t m_arrTrajectoryTrailPoints = 0x11D0; // 
-                constexpr std::ptrdiff_t m_arrTrajectoryTrailPointCreationTimes = 0x11E8; // CUtlVector<float32>
+                constexpr std::ptrdiff_t m_arrTrajectoryTrailPointCreationTimes = 0x11E8; // 
                 constexpr std::ptrdiff_t m_flTrajectoryTrailEffectCreationTime = 0x1200; // 
             }
             // Parent: C_BaseToggle
@@ -2779,7 +2779,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_PredNetUInt16Variables = 0x38; // 
                 constexpr std::ptrdiff_t m_PredNetIntVariables = 0x50; // 
                 constexpr std::ptrdiff_t m_PredNetUInt32Variables = 0x68; // 
-                constexpr std::ptrdiff_t m_PredNetUInt64Variables = 0x80; // C_NetworkUtlVectorBase<uint64>
+                constexpr std::ptrdiff_t m_PredNetUInt64Variables = 0x80; // 
                 constexpr std::ptrdiff_t m_PredNetFloatVariables = 0x98; // 
                 constexpr std::ptrdiff_t m_PredNetVectorVariables = 0xB0; // 
                 constexpr std::ptrdiff_t m_PredNetQuaternionVariables = 0xC8; // 
@@ -2788,12 +2788,12 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_OwnerOnlyPredNetByteVariables = 0x110; // 
                 constexpr std::ptrdiff_t m_OwnerOnlyPredNetUInt16Variables = 0x128; // 
                 constexpr std::ptrdiff_t m_OwnerOnlyPredNetIntVariables = 0x140; // 
-                constexpr std::ptrdiff_t m_OwnerOnlyPredNetUInt32Variables = 0x158; // 
-                constexpr std::ptrdiff_t m_OwnerOnlyPredNetUInt64Variables = 0x170; // 
-                constexpr std::ptrdiff_t m_OwnerOnlyPredNetFloatVariables = 0x188; // 
-                constexpr std::ptrdiff_t m_OwnerOnlyPredNetVectorVariables = 0x1A0; // 
-                constexpr std::ptrdiff_t m_OwnerOnlyPredNetQuaternionVariables = 0x1B8; // 
-                constexpr std::ptrdiff_t m_OwnerOnlyPredNetGlobalSymbolVariables = 0x1D0; // 
+                constexpr std::ptrdiff_t m_OwnerOnlyPredNetUInt32Variables = 0x158; // C_NetworkUtlVectorBase<uint32>
+                constexpr std::ptrdiff_t m_OwnerOnlyPredNetUInt64Variables = 0x170; // C_NetworkUtlVectorBase<uint64>
+                constexpr std::ptrdiff_t m_OwnerOnlyPredNetFloatVariables = 0x188; // C_NetworkUtlVectorBase<float32>
+                constexpr std::ptrdiff_t m_OwnerOnlyPredNetVectorVariables = 0x1A0; // C_NetworkUtlVectorBase<Vector>
+                constexpr std::ptrdiff_t m_OwnerOnlyPredNetQuaternionVariables = 0x1B8; // C_NetworkUtlVectorBase<Quaternion>
+                constexpr std::ptrdiff_t m_OwnerOnlyPredNetGlobalSymbolVariables = 0x1D0; // C_NetworkUtlVectorBase<CGlobalSymbol>
                 constexpr std::ptrdiff_t m_nBoolVariablesCount = 0x1E8; // 
                 constexpr std::ptrdiff_t m_nOwnerOnlyBoolVariablesCount = 0x1EC; // 
                 constexpr std::ptrdiff_t m_nRandomSeedOffset = 0x1F0; // 
@@ -3127,7 +3127,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_Handle = 0x28; // 
                 constexpr std::ptrdiff_t m_Name = 0x30; // 
                 constexpr std::ptrdiff_t m_AssociatedEntities = 0x38; // 
-                constexpr std::ptrdiff_t m_AssociatedEntityNames = 0x50; // C_NetworkUtlVectorBase<CUtlSymbolLarge>
+                constexpr std::ptrdiff_t m_AssociatedEntityNames = 0x50; // 
             }
             // Parent: C_CSWeaponBaseGun
             // Field count: 0
@@ -3677,7 +3677,7 @@ namespace cs2_dumper {
             // Metadata:
             // NetworkVarNames: m_WeaponSequence (CUtlString)
             namespace CCSGameModeRules_ArmsRace {
-                constexpr std::ptrdiff_t m_WeaponSequence = 0x30; // C_NetworkUtlVectorBase<CUtlString>
+                constexpr std::ptrdiff_t m_WeaponSequence = 0x30; // 
             }
             // Parent: C_PointEntity
             // Field count: 1
@@ -3731,7 +3731,7 @@ namespace cs2_dumper {
             // NetworkVarNames: m_DamageList (CDamageRecord)
             namespace CCSPlayerController_DamageServices {
                 constexpr std::ptrdiff_t m_nSendUpdate = 0x40; // 
-                constexpr std::ptrdiff_t m_DamageList = 0x48; // 
+                constexpr std::ptrdiff_t m_DamageList = 0x48; // C_UtlVectorEmbeddedNetworkVar<CDamageRecord>
             }
             // Parent: CEntityComponent
             // Field count: 5
@@ -4657,10 +4657,10 @@ namespace cs2_dumper {
             namespace CBuoyancyHelper {
                 constexpr std::ptrdiff_t m_nFluidType = 0x18; // 
                 constexpr std::ptrdiff_t m_flFluidDensity = 0x1C; // 
-                constexpr std::ptrdiff_t m_vecFractionOfWheelSubmergedForWheelFriction = 0x20; // CUtlVector<float32>
-                constexpr std::ptrdiff_t m_vecWheelFrictionScales = 0x38; // CUtlVector<float32>
-                constexpr std::ptrdiff_t m_vecFractionOfWheelSubmergedForWheelDrag = 0x50; // CUtlVector<float32>
-                constexpr std::ptrdiff_t m_vecWheelDrag = 0x68; // CUtlVector<float32>
+                constexpr std::ptrdiff_t m_vecFractionOfWheelSubmergedForWheelFriction = 0x20; // 
+                constexpr std::ptrdiff_t m_vecWheelFrictionScales = 0x38; // 
+                constexpr std::ptrdiff_t m_vecFractionOfWheelSubmergedForWheelDrag = 0x50; // 
+                constexpr std::ptrdiff_t m_vecWheelDrag = 0x68; // 
             }
             // Parent: C_BaseModelEntity
             // Field count: 4
@@ -5876,7 +5876,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_nLastPredictableCommand = 0x48C; // 
                 constexpr std::ptrdiff_t m_hOldMoveParent = 0x490; // 
                 constexpr std::ptrdiff_t m_Particles = 0x498; // 
-                constexpr std::ptrdiff_t m_vecPredictedScriptFloats = 0x4C0; // CUtlVector<float32>
+                constexpr std::ptrdiff_t m_vecPredictedScriptFloats = 0x4C0; // 
                 constexpr std::ptrdiff_t m_vecPredictedScriptFloatIDs = 0x4D8; // 
                 constexpr std::ptrdiff_t m_nNextScriptVarRecordID = 0x508; // 
                 constexpr std::ptrdiff_t m_vecAngVelocity = 0x518; // 
@@ -5943,7 +5943,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_flDefBurstScale = 0x108C; // 
                 constexpr std::ptrdiff_t m_vDefBurstOffset = 0x1090; // 
                 constexpr std::ptrdiff_t m_hBreaker = 0x109C; // 
-                constexpr std::ptrdiff_t m_PerformanceMode = 0x10A0; // 
+                constexpr std::ptrdiff_t m_PerformanceMode = 0x10A0; // PerformanceMode_t
                 constexpr std::ptrdiff_t m_flPreventDamageBeforeTime = 0x10A4; // 
                 constexpr std::ptrdiff_t m_BreakableContentsType = 0x10A8; // 
                 constexpr std::ptrdiff_t m_strBreakableContentsPropGroupOverride = 0x10B0; // 
@@ -6477,7 +6477,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_nTransitionStartTick = 0xD40; // 
                 constexpr std::ptrdiff_t m_nTransitionDurationTicks = 0xD44; // 
                 constexpr std::ptrdiff_t m_flTransitionStartSpeed = 0xD48; // 
-                constexpr std::ptrdiff_t m_hConveyorModels = 0xD50; // 
+                constexpr std::ptrdiff_t m_hConveyorModels = 0xD50; // C_NetworkUtlVectorBase<CHandle<C_BaseEntity>>
                 constexpr std::ptrdiff_t m_flCurrentConveyorOffset = 0xD68; // 
                 constexpr std::ptrdiff_t m_flCurrentConveyorSpeed = 0xD6C; // 
             }

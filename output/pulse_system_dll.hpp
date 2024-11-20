@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2024-11-14 09:58:28.582319100 UTC
+// 2024-11-20 06:26:11.349845700 UTC
 
 #pragma once
 
@@ -474,7 +474,7 @@ namespace cs2_dumper {
             // MPulseCellOutflowHookInfo
             namespace CPulseCell_Outflow_StringSwitch {
                 constexpr std::ptrdiff_t m_DefaultCaseOutflow = 0x48; // 
-                constexpr std::ptrdiff_t m_CaseOutflows = 0x78; // 
+                constexpr std::ptrdiff_t m_CaseOutflows = 0x78; // CUtlVector<CPulse_OutflowConnection>
             }
             // Parent: CPulseCell_BaseFlow
             // Field count: 0
@@ -495,7 +495,7 @@ namespace cs2_dumper {
             // MPulseCellMethodBindings
             // MPulseCellOutflowHookInfo
             namespace CPulseCell_FireCursors {
-                constexpr std::ptrdiff_t m_Outflows = 0x48; // 
+                constexpr std::ptrdiff_t m_Outflows = 0x48; // CUtlVector<CPulse_OutflowConnection>
                 constexpr std::ptrdiff_t m_bWaitForChildOutflows = 0x60; // 
                 constexpr std::ptrdiff_t m_OnFinished = 0x68; // 
                 constexpr std::ptrdiff_t m_OnCanceled = 0x98; // 
@@ -506,7 +506,7 @@ namespace cs2_dumper {
             // Metadata:
             // MGetKV3ClassDefaults
             namespace CPulseCell_Outflow_CycleShuffled__InstanceState_t {
-                constexpr std::ptrdiff_t m_Shuffle = 0x0; // 
+                constexpr std::ptrdiff_t m_Shuffle = 0x0; // CUtlVectorFixedGrowable<uint8,8>
                 constexpr std::ptrdiff_t m_nNextShuffle = 0x20; // 
             }
             // Parent: CPulseCell_Base
@@ -529,7 +529,7 @@ namespace cs2_dumper {
             // MPulseCellMethodBindings
             // MPulseCellOutflowHookInfo
             namespace CPulseCell_Outflow_CycleRandom {
-                constexpr std::ptrdiff_t m_Outputs = 0x48; // 
+                constexpr std::ptrdiff_t m_Outputs = 0x48; // CUtlVector<CPulse_OutflowConnection>
             }
             // Parent: CPulseCell_Inflow_BaseEntrypoint
             // Field count: 1
@@ -645,7 +645,7 @@ namespace cs2_dumper {
             namespace CPulseCell_Step_CallExternalMethod {
                 constexpr std::ptrdiff_t m_MethodName = 0x48; // 
                 constexpr std::ptrdiff_t m_GameBlackboard = 0x50; // 
-                constexpr std::ptrdiff_t m_ExpectedArgs = 0x58; // 
+                constexpr std::ptrdiff_t m_ExpectedArgs = 0x58; // CUtlLeanVector<CPulseRuntimeMethodArg>
                 constexpr std::ptrdiff_t m_nAsyncCallMode = 0x68; // 
                 constexpr std::ptrdiff_t m_OnFinished = 0x70; // 
             }
@@ -743,7 +743,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_nCallInfoIndex = 0x1C; // 
                 constexpr std::ptrdiff_t m_nConstIdx = 0x20; // 
                 constexpr std::ptrdiff_t m_nDomainValueIdx = 0x22; // 
-                constexpr std::ptrdiff_t m_nBlackboardReferenceIdx = 0x24; // 
+                constexpr std::ptrdiff_t m_nBlackboardReferenceIdx = 0x24; // PulseRuntimeBlackboardReferenceIndex_t
             }
             // Parent: None
             // Field count: 5
@@ -784,7 +784,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_Description = 0x78; // 
                 constexpr std::ptrdiff_t m_bIsPublic = 0x80; // 
                 constexpr std::ptrdiff_t m_ReturnType = 0x88; // 
-                constexpr std::ptrdiff_t m_Args = 0x98; // 
+                constexpr std::ptrdiff_t m_Args = 0x98; // CUtlLeanVector<CPulseRuntimeMethodArg>
             }
             // Parent: CBasePulseGraphInstance
             // Field count: 6
@@ -828,7 +828,7 @@ namespace cs2_dumper {
             // MPulseCellMethodBindings
             // MPulseCellOutflowHookInfo
             namespace CPulseCell_Outflow_CycleShuffled {
-                constexpr std::ptrdiff_t m_Outputs = 0x48; // 
+                constexpr std::ptrdiff_t m_Outputs = 0x48; // CUtlVector<CPulse_OutflowConnection>
             }
             // Parent: None
             // Field count: 1
@@ -1064,7 +1064,7 @@ namespace cs2_dumper {
             // MPulseCellOutflowHookInfo
             namespace CPulseCell_Outflow_IntSwitch {
                 constexpr std::ptrdiff_t m_DefaultCaseOutflow = 0x48; // 
-                constexpr std::ptrdiff_t m_CaseOutflows = 0x78; // 
+                constexpr std::ptrdiff_t m_CaseOutflows = 0x78; // CUtlVector<CPulse_OutflowConnection>
             }
             // Parent: None
             // Field count: 14
@@ -1195,7 +1195,7 @@ namespace cs2_dumper {
             // MPulseCellMethodBindings
             // MPulseCellOutflowHookInfo
             namespace CPulseCell_Outflow_CycleOrdered {
-                constexpr std::ptrdiff_t m_Outputs = 0x48; // 
+                constexpr std::ptrdiff_t m_Outputs = 0x48; // CUtlVector<CPulse_OutflowConnection>
             }
             // Parent: None
             // Field count: 3

@@ -70,9 +70,9 @@ int myimgui::CreateWindow_Violet (LPCSTR class_name, LPCSTR title_name, myimgui:
         ImGui_ImplDX11_NewFrame();
         ImGui_ImplWin32_NewFrame();
         ImGui::NewFrame();
-        {
-          fun(); //自定义...绘制区
-        }
+        
+        fun(); 
+        
         ImGui::Render();
         const float clear_color_with_alpha[4] = { clear_color.x * clear_color.w, clear_color.y * clear_color.w, clear_color.z * clear_color.w, clear_color.w };
         g_pd3dDeviceContext->OMSetRenderTargets(1, &g_mainRenderTargetView, nullptr);

@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2024-11-14 09:58:28.582319100 UTC
+// 2024-11-20 06:26:11.349845700 UTC
 
 #pragma once
 
@@ -264,7 +264,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_nOctave = 0x4; // 
                 constexpr std::ptrdiff_t m_flCents = 0x8; // 
                 constexpr std::ptrdiff_t m_flPhase = 0xC; // 
-                constexpr std::ptrdiff_t m_curve = 0x10; // CPiecewiseCurve
+                constexpr std::ptrdiff_t m_curve = 0x10; // 
                 constexpr std::ptrdiff_t m_volumeScaling = 0x50; // 
             }
             // Parent: None
@@ -274,7 +274,7 @@ namespace cs2_dumper {
             // MGetKV3ClassDefaults
             namespace CVoiceContainerStaticAdditiveSynth__CTone {
                 constexpr std::ptrdiff_t m_harmonics = 0x0; // 
-                constexpr std::ptrdiff_t m_curve = 0x18; // CPiecewiseCurve
+                constexpr std::ptrdiff_t m_curve = 0x18; // 
                 constexpr std::ptrdiff_t m_bSyncInstances = 0x58; // 
             }
             // Parent: CVoiceContainerBase
@@ -326,7 +326,7 @@ namespace cs2_dumper {
             // MGetKV3ClassDefaults
             // MVDataNodeType
             namespace CDSPPresetMixgroupModifierTable {
-                constexpr std::ptrdiff_t m_table = 0x0; // 
+                constexpr std::ptrdiff_t m_table = 0x0; // CUtlVector<CDspPresetModifierList>
             }
             // Parent: CSosGroupActionSchema
             // Field count: 7
@@ -381,7 +381,7 @@ namespace cs2_dumper {
             // Metadata:
             // MGetKV3ClassDefaults
             namespace VMixSubgraphSwitchDesc_t {
-                constexpr std::ptrdiff_t m_interpolationMode = 0x0; // 
+                constexpr std::ptrdiff_t m_interpolationMode = 0x0; // VMixSubgraphSwitchInterpolationType_t
                 constexpr std::ptrdiff_t m_bOnlyTailsOnFadeOut = 0x4; // 
                 constexpr std::ptrdiff_t m_flInterpolationTime = 0x8; // 
             }
@@ -395,7 +395,7 @@ namespace cs2_dumper {
             // MPropertyDescription
             namespace CVoiceContainerAnalysisBase {
                 constexpr std::ptrdiff_t m_bRegenerateCurveOnCompile = 0x8; // 
-                constexpr std::ptrdiff_t m_curve = 0x10; // CPiecewiseCurve
+                constexpr std::ptrdiff_t m_curve = 0x10; // 
             }
             // Parent: CSosGroupActionSchema
             // Field count: 10
@@ -573,7 +573,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_times = 0x0; // 
                 constexpr std::ptrdiff_t m_nameHashCodes = 0x18; // 
                 constexpr std::ptrdiff_t m_nameStrings = 0x30; // 
-                constexpr std::ptrdiff_t m_samples = 0x48; // 
+                constexpr std::ptrdiff_t m_samples = 0x48; // CUtlVector<CUtlVector<float32>>
                 constexpr std::ptrdiff_t m_flEaseIn = 0x60; // 
                 constexpr std::ptrdiff_t m_flEaseOut = 0x64; // 
             }
@@ -597,13 +597,13 @@ namespace cs2_dumper {
             namespace CVoiceContainerShapedNoise {
                 constexpr std::ptrdiff_t m_bUseCurveForFrequency = 0xC0; // 
                 constexpr std::ptrdiff_t m_flFrequency = 0xC4; // 
-                constexpr std::ptrdiff_t m_frequencySweep = 0xC8; // CPiecewiseCurve
+                constexpr std::ptrdiff_t m_frequencySweep = 0xC8; // 
                 constexpr std::ptrdiff_t m_bUseCurveForResonance = 0x108; // 
                 constexpr std::ptrdiff_t m_flResonance = 0x10C; // 
-                constexpr std::ptrdiff_t m_resonanceSweep = 0x110; // CPiecewiseCurve
+                constexpr std::ptrdiff_t m_resonanceSweep = 0x110; // 
                 constexpr std::ptrdiff_t m_bUseCurveForAmplitude = 0x150; // 
                 constexpr std::ptrdiff_t m_flGainInDecibels = 0x154; // 
-                constexpr std::ptrdiff_t m_gainSweep = 0x158; // CPiecewiseCurve
+                constexpr std::ptrdiff_t m_gainSweep = 0x158; // 
             }
             // Parent: None
             // Field count: 2
@@ -612,7 +612,7 @@ namespace cs2_dumper {
             // MGetKV3ClassDefaults
             namespace CDspPresetModifierList {
                 constexpr std::ptrdiff_t m_dspName = 0x0; // 
-                constexpr std::ptrdiff_t m_modifiers = 0x8; // 
+                constexpr std::ptrdiff_t m_modifiers = 0x8; // CUtlVector<CDSPMixgroupModifier>
             }
             // Parent: None
             // Field count: 2
@@ -729,7 +729,7 @@ namespace cs2_dumper {
             // MPropertyFriendlyName
             // MPropertyDescription
             namespace CVoiceContainerSet {
-                constexpr std::ptrdiff_t m_soundsToPlay = 0xC0; // CUtlVector<CVoiceContainerSetElement>
+                constexpr std::ptrdiff_t m_soundsToPlay = 0xC0; // 
             }
             // Parent: None
             // Field count: 8
@@ -768,7 +768,7 @@ namespace cs2_dumper {
             // Metadata:
             // MGetKV3ClassDefaults
             namespace CSosSoundEventGroupListSchema {
-                constexpr std::ptrdiff_t m_groupList = 0x0; // 
+                constexpr std::ptrdiff_t m_groupList = 0x0; // CUtlVector<CSosSoundEventGroupSchema>
             }
             // Parent: CSosGroupBranchPattern
             // Field count: 5
@@ -818,7 +818,7 @@ namespace cs2_dumper {
             namespace CSoundContainerReferenceArray {
                 constexpr std::ptrdiff_t m_bUseReference = 0x0; // 
                 constexpr std::ptrdiff_t m_sounds = 0x8; // CUtlVector<CStrongHandle<InfoForResourceTypeCVoiceContainerBase>>
-                constexpr std::ptrdiff_t m_pSounds = 0x20; // 
+                constexpr std::ptrdiff_t m_pSounds = 0x20; // CUtlVector<CVoiceContainerBase*>
             }
             // Parent: None
             // Field count: 4
@@ -877,7 +877,7 @@ namespace cs2_dumper {
             namespace CAudioSentence {
                 constexpr std::ptrdiff_t m_bShouldVoiceDuck = 0x0; // 
                 constexpr std::ptrdiff_t m_RunTimePhonemes = 0x8; // 
-                constexpr std::ptrdiff_t m_EmphasisSamples = 0x20; // 
+                constexpr std::ptrdiff_t m_EmphasisSamples = 0x20; // CUtlVector<CAudioEmphasisSample>
                 constexpr std::ptrdiff_t m_morphData = 0x38; // 
             }
             // Parent: CSosGroupActionSchema
