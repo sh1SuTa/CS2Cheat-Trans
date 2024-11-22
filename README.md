@@ -19,3 +19,5 @@
 
 ## 游戏控制台指令
 `bot_kick` 踢出机器人
+
+更多带阅读文档 nfk.putileaf.top
