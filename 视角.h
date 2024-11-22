@@ -1,7 +1,7 @@
 #pragma once
 #include <cstddef>
 
-namespace ÊÓ½Ç {
+namespace è§†è§’ {
 	constexpr std::ptrdiff_t pitch = 0x1A5C610;
 	constexpr std::ptrdiff_t yam = pitch+4;
 
