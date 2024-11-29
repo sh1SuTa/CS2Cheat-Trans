@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2024-11-20 06:26:11.349845700 UTC
+// 2024-11-29 09:24:05.514722200 UTC
 
 #pragma once
 
@@ -1017,7 +1017,7 @@ namespace cs2_dumper {
             // MPropertyFriendlyName
             // MPropertyDescription
             namespace CVoiceContainerSwitch {
-                constexpr std::ptrdiff_t m_soundsToPlay = 0xC0; // CUtlVector<CSoundContainerReference>
+                constexpr std::ptrdiff_t m_soundsToPlay = 0xC0; // 
             }
             // Parent: CSosGroupActionSchema
             // Field count: 1

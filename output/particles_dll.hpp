@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2024-11-20 06:26:11.349845700 UTC
+// 2024-11-29 09:24:05.514722200 UTC
 
 #pragma once
 
@@ -2146,7 +2146,7 @@ namespace cs2_dumper {
             namespace C_OP_RenderSimpleModelCollection {
                 constexpr std::ptrdiff_t m_bCenterOffset = 0x210; // 
                 constexpr std::ptrdiff_t m_hModel = 0x218; // CStrongHandle<InfoForResourceTypeCModel>
-                constexpr std::ptrdiff_t m_modelInput = 0x220; // CParticleModelInput
+                constexpr std::ptrdiff_t m_modelInput = 0x220; // 
                 constexpr std::ptrdiff_t m_fSizeCullScale = 0x280; // 
                 constexpr std::ptrdiff_t m_bDisableShadows = 0x3E0; // 
                 constexpr std::ptrdiff_t m_bDisableMotionBlur = 0x3E1; // 
@@ -3040,7 +3040,7 @@ namespace cs2_dumper {
             namespace C_OP_RenderPostProcessing {
                 constexpr std::ptrdiff_t m_flPostProcessStrength = 0x210; // 
                 constexpr std::ptrdiff_t m_hPostTexture = 0x370; // 
-                constexpr std::ptrdiff_t m_nPriority = 0x378; // 
+                constexpr std::ptrdiff_t m_nPriority = 0x378; // ParticlePostProcessPriorityGroup_t
             }
             // Parent: CParticleFunctionConstraint
             // Field count: 27
@@ -3142,7 +3142,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_nSequenceMax = 0x1CC; // 
                 constexpr std::ptrdiff_t m_bShuffle = 0x1D0; // 
                 constexpr std::ptrdiff_t m_bLinear = 0x1D1; // 
-                constexpr std::ptrdiff_t m_WeightedList = 0x1D8; // CUtlVector<SequenceWeightedList_t>
+                constexpr std::ptrdiff_t m_WeightedList = 0x1D8; // 
             }
             // Parent: CParticleFunctionOperator
             // Field count: 5
@@ -4124,7 +4124,7 @@ namespace cs2_dumper {
             // Metadata:
             // MGetKV3ClassDefaults
             namespace C_OP_LockToBone {
-                constexpr std::ptrdiff_t m_modelInput = 0x1C0; // CParticleModelInput
+                constexpr std::ptrdiff_t m_modelInput = 0x1C0; // 
                 constexpr std::ptrdiff_t m_transformInput = 0x220; // 
                 constexpr std::ptrdiff_t m_flLifeTimeFadeStart = 0x288; // 
                 constexpr std::ptrdiff_t m_flLifeTimeFadeEnd = 0x28C; // 
@@ -4875,7 +4875,7 @@ namespace cs2_dumper {
             // Metadata:
             // MGetKV3ClassDefaults
             namespace C_INIT_CreateOnModel {
-                constexpr std::ptrdiff_t m_modelInput = 0x1C8; // CParticleModelInput
+                constexpr std::ptrdiff_t m_modelInput = 0x1C8; // 
                 constexpr std::ptrdiff_t m_transformInput = 0x228; // 
                 constexpr std::ptrdiff_t m_nForceInModel = 0x290; // 
                 constexpr std::ptrdiff_t m_bScaleToVolume = 0x294; // 
@@ -5756,7 +5756,7 @@ namespace cs2_dumper {
             // Metadata:
             // MGetKV3ClassDefaults
             namespace C_OP_MoveToHitbox {
-                constexpr std::ptrdiff_t m_modelInput = 0x1C0; // CParticleModelInput
+                constexpr std::ptrdiff_t m_modelInput = 0x1C0; // 
                 constexpr std::ptrdiff_t m_transformInput = 0x220; // 
                 constexpr std::ptrdiff_t m_flLifeTimeLerpStart = 0x28C; // 
                 constexpr std::ptrdiff_t m_flLifeTimeLerpEnd = 0x290; // 
@@ -6146,7 +6146,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_nSkin = 0x1988; // 
                 constexpr std::ptrdiff_t m_MaterialVars = 0x1AE8; // CUtlVector<MaterialVariable_t>
                 constexpr std::ptrdiff_t m_flManualModelSelection = 0x1B00; // 
-                constexpr std::ptrdiff_t m_modelInput = 0x1C60; // CParticleModelInput
+                constexpr std::ptrdiff_t m_modelInput = 0x1C60; // 
                 constexpr std::ptrdiff_t m_nLOD = 0x1CC0; // 
                 constexpr std::ptrdiff_t m_EconSlotName = 0x1CC4; // 
                 constexpr std::ptrdiff_t m_bOriginalModel = 0x1DC4; // 

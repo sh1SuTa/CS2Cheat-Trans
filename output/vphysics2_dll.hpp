@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2024-11-20 06:26:11.349845700 UTC
+// 2024-11-29 09:24:05.514722200 UTC
 
 #pragma once
 
@@ -92,7 +92,7 @@ namespace cs2_dumper {
             // MGetKV3ClassDefaults
             namespace PhysFeModelDesc_t {
                 constexpr std::ptrdiff_t m_CtrlHash = 0x0; // 
-                constexpr std::ptrdiff_t m_CtrlName = 0x18; // CUtlVector<CUtlString>
+                constexpr std::ptrdiff_t m_CtrlName = 0x18; // 
                 constexpr std::ptrdiff_t m_nStaticNodeFlags = 0x30; // 
                 constexpr std::ptrdiff_t m_nDynamicNodeFlags = 0x34; // 
                 constexpr std::ptrdiff_t m_flLocalForce = 0x38; // 
@@ -110,7 +110,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_nTreeDepth = 0x54; // 
                 constexpr std::ptrdiff_t m_nNodeBaseJiggleboneDependsCount = 0x56; // 
                 constexpr std::ptrdiff_t m_nRopeCount = 0x58; // 
-                constexpr std::ptrdiff_t m_Ropes = 0x60; // 
+                constexpr std::ptrdiff_t m_Ropes = 0x60; // CUtlVector<uint16>
                 constexpr std::ptrdiff_t m_NodeBases = 0x78; // 
                 constexpr std::ptrdiff_t m_SimdNodeBases = 0x90; // 
                 constexpr std::ptrdiff_t m_Quads = 0xA8; // 
@@ -123,7 +123,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_Twists = 0x150; // 
                 constexpr std::ptrdiff_t m_HingeLimits = 0x168; // 
                 constexpr std::ptrdiff_t m_AntiTunnelProbes = 0x180; // 
-                constexpr std::ptrdiff_t m_AntiTunnelTargetNodes = 0x198; // 
+                constexpr std::ptrdiff_t m_AntiTunnelTargetNodes = 0x198; // CUtlVector<uint16>
                 constexpr std::ptrdiff_t m_AxialEdges = 0x1B0; // 
                 constexpr std::ptrdiff_t m_NodeInvMasses = 0x1C8; // 
                 constexpr std::ptrdiff_t m_CtrlOffsets = 0x1E0; // 
@@ -142,11 +142,11 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_TaperedCapsuleStretches = 0x318; // 
                 constexpr std::ptrdiff_t m_TaperedCapsuleRigids = 0x330; // 
                 constexpr std::ptrdiff_t m_SphereRigids = 0x348; // 
-                constexpr std::ptrdiff_t m_WorldCollisionNodes = 0x360; // 
-                constexpr std::ptrdiff_t m_TreeParents = 0x378; // 
-                constexpr std::ptrdiff_t m_TreeCollisionMasks = 0x390; // 
+                constexpr std::ptrdiff_t m_WorldCollisionNodes = 0x360; // CUtlVector<uint16>
+                constexpr std::ptrdiff_t m_TreeParents = 0x378; // CUtlVector<uint16>
+                constexpr std::ptrdiff_t m_TreeCollisionMasks = 0x390; // CUtlVector<uint16>
                 constexpr std::ptrdiff_t m_TreeChildren = 0x3A8; // 
-                constexpr std::ptrdiff_t m_FreeNodes = 0x3C0; // 
+                constexpr std::ptrdiff_t m_FreeNodes = 0x3C0; // CUtlVector<uint16>
                 constexpr std::ptrdiff_t m_FitMatrices = 0x3D8; // 
                 constexpr std::ptrdiff_t m_FitWeights = 0x3F0; // 
                 constexpr std::ptrdiff_t m_ReverseOffsets = 0x408; // 
@@ -155,7 +155,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_KelagerBends = 0x450; // 
                 constexpr std::ptrdiff_t m_CtrlSoftOffsets = 0x468; // 
                 constexpr std::ptrdiff_t m_JiggleBones = 0x480; // 
-                constexpr std::ptrdiff_t m_SourceElems = 0x498; // 
+                constexpr std::ptrdiff_t m_SourceElems = 0x498; // CUtlVector<uint16>
                 constexpr std::ptrdiff_t m_GoalDampedSpringIntegrators = 0x4B0; // 
                 constexpr std::ptrdiff_t m_Tris = 0x4C8; // 
                 constexpr std::ptrdiff_t m_nTriCount1 = 0x4E0; // 
@@ -175,7 +175,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_VertexMapValues = 0x5A8; // 
                 constexpr std::ptrdiff_t m_Effects = 0x5C0; // 
                 constexpr std::ptrdiff_t m_LockToParent = 0x5D8; // 
-                constexpr std::ptrdiff_t m_LockToGoal = 0x5F0; // 
+                constexpr std::ptrdiff_t m_LockToGoal = 0x5F0; // CUtlVector<uint16>
                 constexpr std::ptrdiff_t m_SkelParents = 0x608; // 
                 constexpr std::ptrdiff_t m_DynNodeWindBases = 0x620; // 
                 constexpr std::ptrdiff_t m_flInternalPressure = 0x638; // 
@@ -363,7 +363,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t flCurvature = 0xC; // 
                 constexpr std::ptrdiff_t nFlags = 0x10; // 
                 constexpr std::ptrdiff_t nProbeNode = 0x14; // 
-                constexpr std::ptrdiff_t targetNodes = 0x18; // 
+                constexpr std::ptrdiff_t targetNodes = 0x18; // CUtlVector<uint16>
             }
             // Parent: None
             // Field count: 35
@@ -491,7 +491,7 @@ namespace cs2_dumper {
             namespace CFeMorphLayer {
                 constexpr std::ptrdiff_t m_Name = 0x0; // 
                 constexpr std::ptrdiff_t m_nNameHash = 0x8; // 
-                constexpr std::ptrdiff_t m_Nodes = 0x10; // 
+                constexpr std::ptrdiff_t m_Nodes = 0x10; // CUtlVector<uint16>
                 constexpr std::ptrdiff_t m_InitPos = 0x28; // 
                 constexpr std::ptrdiff_t m_Gravity = 0x40; // 
                 constexpr std::ptrdiff_t m_GoalStrength = 0x58; // 
@@ -869,7 +869,7 @@ namespace cs2_dumper {
             namespace FeMorphLayerDepr_t {
                 constexpr std::ptrdiff_t m_Name = 0x0; // 
                 constexpr std::ptrdiff_t m_nNameHash = 0x8; // 
-                constexpr std::ptrdiff_t m_Nodes = 0x10; // 
+                constexpr std::ptrdiff_t m_Nodes = 0x10; // CUtlVector<uint16>
                 constexpr std::ptrdiff_t m_InitPos = 0x28; // 
                 constexpr std::ptrdiff_t m_Gravity = 0x40; // 
                 constexpr std::ptrdiff_t m_GoalStrength = 0x58; // 
