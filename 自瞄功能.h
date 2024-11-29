@@ -11,4 +11,4 @@
 
 
 
-void втцИ╤сап();
+void aimbot();
