@@ -4,9 +4,6 @@
 
 
 void 改fov角度() {
-	
-	
-    
     工具::Process cs2(TEXT("cs2.exe"));
     
     //寻找dll模块
@@ -22,7 +19,7 @@ void 改fov角度() {
     auto fov_addr = cam_ser + cs2_dumper::schemas::client_dll::CCSPlayerBase_CameraServices::m_iFOV;
     //cs2.write(fov_addr, Menu::视野角度);
 
-    mem::Write(cheat::g_handle, (CHAR*)fov_addr, &Menu::视野角度, sizeof(Menu::视野角度));
+    mem::Write( (CHAR*)fov_addr, &Menu::视野角度, sizeof(Menu::视野角度));
     
     
 
@@ -35,7 +32,7 @@ void 改fov角度2() {
 void 旋转大陀螺() {
     
             float 转速 = 1.f;
-            mem::Write(cheat::g_handle, cheat::clientAddress + 视角::yam, &工具::初始值, sizeof(工具::初始值));
+            mem::Write( cheat::clientAddress + 视角::yam, &工具::初始值, sizeof(工具::初始值));
             工具::初始值 = 工具::初始值 + 转速;
             if (工具::初始值 == 180)
             {

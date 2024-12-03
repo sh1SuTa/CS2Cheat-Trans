@@ -3,6 +3,7 @@
 #include "myimgui.h"
 #include "cheat.h"
 #include"工具类/XorStr.h"
+#include"main.h"
 
 int 国服 = 0;
 
@@ -11,31 +12,34 @@ void RandomTitle()
 	constexpr int length = 25;
 	const auto characters = TEXT("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz`-=~!@#$%^&*()_+,./;'[]|{}:?甲乙丙丁戊己庚辛壬癸子丑寅卯辰巳午未申酉戌亥");
 	TCHAR title[length + 1]{};
-
 	for (int j = 0; j != length; j++)
 	{
 		title[j] += characters[rand() % 95];
 	}
-
 	SetConsoleTitle(title);
 }
+
 void initGame() {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	srand((unsigned)time(NULL));
 	RandomTitle();
-
+	//获取窗口句柄
 	cheat::g_hwnd=FindWindowA(XorStr("SDL_app"), XorStr("Counter-Strike 2"));
 	if (cheat::g_hwnd == NULL) {
 		cheat::g_hwnd = FindWindowA(XorStr("SDL_app"), XorStr("反恐精英：全球攻势"));
 		国服 = 1;
-
 	}
 	SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_GREEN);
 	std::cout << "HWND：" << cheat::g_hwnd << std::endl;
-
+	//获取窗口对应的进程ID
 	GetWindowThreadProcessId(cheat::g_hwnd,&cheat::g_pid);
+	GetWindowThreadProcessId(cheat::g_hwnd, &游戏进程::g_pid);
+	//获取窗口对应的进程句柄
 	cheat::g_handle = OpenProcess(PROCESS_ALL_ACCESS,true, cheat::g_pid);
+	游戏进程::g_handle = OpenProcess(PROCESS_ALL_ACCESS,true, cheat::g_pid);
+	//获取client.dll模块的地址
 	if (cheat::clientAddress = mem::GetModule(cheat::g_pid, L"client.dll")) {
+		游戏进程::clientAddress = mem::GetModule(cheat::g_pid, L"client.dll");
 		std::cout << XorStr("获取clientAddress成功")<<std::endl;
 	}
 	SetConsoleTextAttribute(hConsole, FOREGROUND_GREEN);
@@ -58,7 +62,7 @@ int main()
 	}
 	else
 	{
-		myimgui::CreateWindow_Violet("SDL_app", "Counter-Strike 2", &fun, "C:\\Windows\\Fonts\\simkai.ttf",
+		myimgui::CreateWindow_Violet(XorStr("SDL_app"), "Counter-Strike 2", &fun, "C:\\Windows\\Fonts\\simkai.ttf",
 			18.0f, false, 1);
 	}
 

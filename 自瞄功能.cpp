@@ -43,8 +43,8 @@ void 自瞄()
 
 			if (GetAsyncKeyState(Menu::Aimkey))
 			{
-				mem::Write(cheat::g_handle, cheat::clientAddress + 视角::yam, &cheat::Aimmouse.x, sizeof(cheat::Aimmouse.x));
-				mem::Write(cheat::g_handle, cheat::clientAddress + 视角::pitch, &cheat::Aimmouse.y, sizeof(cheat::Aimmouse.y));
+				mem::Write(cheat::clientAddress + 视角::yam, &cheat::Aimmouse.x, sizeof(cheat::Aimmouse.x));
+				mem::Write(cheat::clientAddress + 视角::pitch, &cheat::Aimmouse.y, sizeof(cheat::Aimmouse.y));
 			}
 		}
 	}

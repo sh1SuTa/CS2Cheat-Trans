@@ -164,6 +164,8 @@
     <ClCompile Include="透视.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="main.h" />
+    <ClInclude Include="address\游戏进程.h" />
     <ClInclude Include="cheat.h" />
     <ClInclude Include="ImGui\imconfig.h" />
     <ClInclude Include="ImGui\imgui.h" />
@@ -173,7 +175,7 @@
     <ClInclude Include="ImGui\imstb_rectpack.h" />
     <ClInclude Include="ImGui\imstb_textedit.h" />
     <ClInclude Include="ImGui\imstb_truetype.h" />
-    <ClInclude Include="Mem.h" />
+    <ClInclude Include="工具类\Mem.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="myimgui.h" />
     <ClInclude Include="output\animationsystem_dll.hpp" />

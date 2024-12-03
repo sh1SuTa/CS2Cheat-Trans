@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include"cheat.h"
-#include"Mem.h"
+#include"工具类/Mem.h"
 #include"output/offsets.hpp"
 #include"output/client_dll.hpp"
 #include"工具类/XorStr.h"
@@ -103,7 +103,9 @@ namespace 工具 {
 					throw std::runtime_error("Memory write error");
 			}
 
-			~Process() { CloseHandle(process_handle); }
+			~Process() { 
+				CloseHandle(process_handle); 
+			}
 	};
 }
 

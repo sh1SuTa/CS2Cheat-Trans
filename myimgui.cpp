@@ -4,9 +4,9 @@
 
 
 //参数1:类名 参数2:标题名 参数3:回调 参数4:字体路径 参数5:字体大小 参数6:垂直同步 参数7:菜单样式 0为黑色,1为白色
-int myimgui::CreateWindow_Violet (LPCSTR class_name, LPCSTR title_name, myimgui::myFun fun,const char* Fontsname, float Fonts_size, bool Synclnterval, int Menustyle)
+int myimgui::CreateWindow_Violet (LPCSTR 类名, LPCSTR title_name, myimgui::myFun fun,const char* Fontsname, float Fonts_size, bool Synclnterval, int Menustyle)
 {
-    gamewindow.ClassName = class_name;
+    gamewindow.ClassName = 类名;
     gamewindow.TitleName = title_name;
 
     WNDCLASSEXW wc = { sizeof(wc), CS_CLASSDC, WndProc, 0L, 0L, GetModuleHandle(nullptr), nullptr, nullptr, nullptr, nullptr, L"Violet", nullptr };
@@ -97,7 +97,6 @@ int myimgui::CreateWindow_Violet (LPCSTR class_name, LPCSTR title_name, myimgui:
     CleanupDeviceD3D();
     ::DestroyWindow(mywindow.hwnd);
     ::UnregisterClassW(wc.lpszClassName, wc.hInstance);
-
     return 0;
 }
 

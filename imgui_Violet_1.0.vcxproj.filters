@@ -31,6 +31,9 @@
     <Filter Include="output">
       <UniqueIdentifier>{d762c083-3653-4e42-9e74-adf98949ac8c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="address">
+      <UniqueIdentifier>{65a6ef17-067b-4bff-8cc7-e17015db1a4c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -104,7 +107,7 @@
     <ClInclude Include="myimgui.h">
       <Filter>myimgui</Filter>
     </ClInclude>
-    <ClInclude Include="Mem.h">
+    <ClInclude Include="工具类\Mem.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="cheat.h">
@@ -183,6 +186,12 @@
       <Filter>output</Filter>
     </ClInclude>
     <ClInclude Include="视角.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="address\游戏进程.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

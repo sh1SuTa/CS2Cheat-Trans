@@ -15,7 +15,7 @@ void fun() {
 	Traverse();
 }
 
-bool 绘制测试();
+
 
 
 

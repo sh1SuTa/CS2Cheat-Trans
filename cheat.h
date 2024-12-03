@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include"Mem.h"
+#include"工具类/Mem.h"
 #include"myimgui.h"
 #include "Menu.h"
 #include"工具.h"
@@ -81,7 +81,7 @@ bool ReadActorPawn();
 //三维转二维
 bool WorldScreen2d(_In_ float world[3], _Out_ float screen[2]);
 
-
+bool 绘制测试();
 void 绘制血条();
 void 绘制骨骼();
 void 骨骼连线(char* Address, int start, int End);
