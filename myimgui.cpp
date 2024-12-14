@@ -1,19 +1,31 @@
-﻿#include "myimgui.h"
+#include "myimgui.h"
 #include <Windows.h>
 
-
-
-//参数1:类名 参数2:标题名 参数3:回调 参数4:字体路径 参数5:字体大小 参数6:垂直同步 参数7:菜单样式 0为黑色,1为白色
-int myimgui::CreateWindow_Violet (LPCSTR 类名, LPCSTR title_name, myimgui::myFun fun,const char* Fontsname, float Fonts_size, bool Synclnterval, int Menustyle)
+// Creates an overlay window with ImGui rendering
+// Parameters:
+// className - Window class name to hook to
+// titleName - Window title to hook to  
+// callback - Function to render ImGui UI
+// fontPath - Path to font file
+// fontSize - Font size to use
+// vsync - Enable vertical sync
+// style - 0 for dark theme, 1 for light theme
+int myimgui::CreateWindow_Violet(LPCSTR className, LPCSTR titleName, myimgui::myFun callback, 
+                                const char* fontPath, float fontSize, bool vsync, int style)
 {
-    gamewindow.ClassName = 类名;
-    gamewindow.TitleName = title_name;
+    gamewindow.ClassName = className;
+    gamewindow.TitleName = titleName;
 
-    WNDCLASSEXW wc = { sizeof(wc), CS_CLASSDC, WndProc, 0L, 0L, GetModuleHandle(nullptr), nullptr, nullptr, nullptr, nullptr, L"Violet", nullptr };
+    // Register window class
+    WNDCLASSEXW wc = { sizeof(wc), CS_CLASSDC, WndProc, 0L, 0L, GetModuleHandle(nullptr), 
+                       nullptr, nullptr, nullptr, nullptr, L"Violet", nullptr };
     ::RegisterClassExW(&wc);
-    mywindow.hwnd = ::CreateWindowExW(WS_EX_TOPMOST | WS_EX_TRANSPARENT | WS_EX_TOOLWINDOW,
-        wc.lpszClassName, L"Dear ImGui DirectX11 Example", WS_POPUP, 100, 100, 1280, 800, nullptr, nullptr, wc.hInstance, nullptr);
 
+    // Create transparent overlay window
+    mywindow.hwnd = ::CreateWindowExW(WS_EX_TOPMOST | WS_EX_TRANSPARENT | WS_EX_TOOLWINDOW,
+        wc.lpszClassName, L"ImGui Overlay", WS_POPUP, 100, 100, 1280, 800, nullptr, nullptr, wc.hInstance, nullptr);
+
+    // Initialize Direct3D
     if (!myimgui::CreateDeviceD3D(mywindow.hwnd))
     {
         CleanupDeviceD3D();
@@ -24,29 +36,33 @@ int myimgui::CreateWindow_Violet (LPCSTR 类名, LPCSTR title_name, myimgui::myF
     ::ShowWindow(mywindow.hwnd, SW_SHOWDEFAULT);
     ::UpdateWindow(mywindow.hwnd);
 
+    // Setup Dear ImGui
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO(); (void)io;
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;    
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;     
 
-    //菜单样式
-    if (Menustyle == 0) { ImGui::StyleColorsDark(); }
-    if (Menustyle == 1) { ImGui::StyleColorsLight(); }
+    // Set theme
+    style == 0 ? ImGui::StyleColorsDark() : ImGui::StyleColorsLight();
     
+    // Initialize ImGui backends
     ImGui_ImplWin32_Init(mywindow.hwnd);
     ImGui_ImplDX11_Init(g_pd3dDevice, g_pd3dDeviceContext);
 
-    ImFont* font = io.Fonts->AddFontFromFileTTF(Fontsname,Fonts_size, nullptr, io.Fonts->GetGlyphRangesChineseFull());//C:\\Windows\\Fonts\\msyh.ttc
+    // Load font
+    ImFont* font = io.Fonts->AddFontFromFileTTF(fontPath, fontSize, nullptr, io.Fonts->GetGlyphRangesChineseFull());
 
-
-    ImVec4 clear_color = ImVec4(0.f, 0.f, 0.f, 0.f);
+    ImVec4 clearColor = ImVec4(0.f, 0.f, 0.f, 0.f);
     bool done = false;
     
-    std::thread  工具线程(作弊线程1);
-    //std::thread 透视线程(透视绘制);
+    // Start cheat thread
+    std::thread cheatThread(作弊线程1);
+
+    // Main loop
     while (!done)
     {
+        // Handle Windows messages
         MSG msg;
         while (::PeekMessage(&msg, nullptr, 0U, 0U, PM_REMOVE))
         {
@@ -57,8 +73,11 @@ int myimgui::CreateWindow_Violet (LPCSTR 类名, LPCSTR title_name, myimgui::myF
         }
         if (done)
             exit(0);
-        //更新窗口
+
+        // Update window position/size
         UpdateWindow();
+
+        // Handle window resize
         if (g_ResizeWidth != 0 && g_ResizeHeight != 0)
         {
             CleanupRenderTarget();
@@ -67,29 +86,27 @@ int myimgui::CreateWindow_Violet (LPCSTR 类名, LPCSTR title_name, myimgui::myF
             CreateRenderTarget();
         }
 
+        // Start ImGui frame
         ImGui_ImplDX11_NewFrame();
         ImGui_ImplWin32_NewFrame();
         ImGui::NewFrame();
         
-        fun(); 
+        // Execute callback to render UI
+        callback(); 
         
+        // Render ImGui
         ImGui::Render();
-        const float clear_color_with_alpha[4] = { clear_color.x * clear_color.w, clear_color.y * clear_color.w, clear_color.z * clear_color.w, clear_color.w };
+        const float clearColorWithAlpha[4] = { clearColor.x * clearColor.w, clearColor.y * clearColor.w, 
+                                             clearColor.z * clearColor.w, clearColor.w };
         g_pd3dDeviceContext->OMSetRenderTargets(1, &g_mainRenderTargetView, nullptr);
-        g_pd3dDeviceContext->ClearRenderTargetView(g_mainRenderTargetView, clear_color_with_alpha);
+        g_pd3dDeviceContext->ClearRenderTargetView(g_mainRenderTargetView, clearColorWithAlpha);
         ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
-        if (Synclnterval)
-        {
-            g_pSwapChain->Present(1, 0);
-        }
-        else
-        {
-            g_pSwapChain->Present(0, 0);
-        }
+
+        // Present frame
+        g_pSwapChain->Present(vsync ? 1 : 0, 0);
     }
-    
 
-
+    // Cleanup
     ImGui_ImplDX11_Shutdown();
     ImGui_ImplWin32_Shutdown();
     ImGui::DestroyContext();
@@ -100,48 +117,46 @@ int myimgui::CreateWindow_Violet (LPCSTR 类名, LPCSTR title_name, myimgui::myF
     return 0;
 }
 
-//更新窗口
+// Updates overlay window position and size to match target window
 void myimgui::UpdateWindow()
 {
-    POINT Point{};
-    RECT Rect{};
+    POINT point{};
+    RECT rect{};
 
-    //查找目标窗口
+    // Find target window
     gamewindow.hwnd = FindWindowA(gamewindow.ClassName, gamewindow.TitleName);
 
-    //获取目标窗口位置
-    GetClientRect(gamewindow.hwnd, &Rect);
-    ClientToScreen(gamewindow.hwnd, &Point);
+    // Get window position and size
+    GetClientRect(gamewindow.hwnd, &rect);
+    ClientToScreen(gamewindow.hwnd, &point);
 
-    //更新透明窗口位置和大小
-    mywindow.pos = gamewindow.pos = ImVec2((float)Point.x, (float)Point.y);
-    mywindow.size = gamewindow.size = ImVec2((float)Rect.right, (float)Rect.bottom);
-    SetWindowPos(mywindow.hwnd, HWND_TOPMOST, (int)mywindow.pos.x, (int)mywindow.pos.y, (int)mywindow.size.x, (int)mywindow.size.y, SWP_SHOWWINDOW);
+    // Update overlay window
+    mywindow.pos = gamewindow.pos = ImVec2((float)point.x, (float)point.y);
+    mywindow.size = gamewindow.size = ImVec2((float)rect.right, (float)rect.bottom);
+    SetWindowPos(mywindow.hwnd, HWND_TOPMOST, (int)mywindow.pos.x, (int)mywindow.pos.y, 
+                (int)mywindow.size.x, (int)mywindow.size.y, SWP_SHOWWINDOW);
 
-    //获取鼠标位置 同步到imgui中
-    POINT MousePos;
-    GetCursorPos(&MousePos);
-    ScreenToClient(mywindow.hwnd, &MousePos);
-    ImGui::GetIO().MousePos.x = (float)MousePos.x;
-    ImGui::GetIO().MousePos.y = (float)MousePos.y;
+    // Update ImGui mouse position
+    POINT mousePos;
+    GetCursorPos(&mousePos);
+    ScreenToClient(mywindow.hwnd, &mousePos);
+    ImGui::GetIO().MousePos.x = (float)mousePos.x;
+    ImGui::GetIO().MousePos.y = (float)mousePos.y;
 
-    //鼠标穿透
+    // Handle mouse click-through
     if (ImGui::GetIO().WantCaptureMouse)
     {
-        //如果鼠标在imgui菜单区域中   那就不把他设置成分层窗口
-        //printf("WantCaptureMouse=true\n");        //0xfff7ffff 会剩下当前的属性 但是会筛掉WS_EX_LAYERED属性
+        // Disable click-through when mouse is over UI
         SetWindowLong(mywindow.hwnd, GWL_EXSTYLE, GetWindowLong(mywindow.hwnd, GWL_EXSTYLE) & (~WS_EX_LAYERED));
-
     }
     else
     {
-        //如果不鼠标在imgui菜单区域中  那就把他设置成分层窗口
-        //printf("WantCaptureMouse=false\n");
+        // Enable click-through when mouse is not over UI
         SetWindowLong(mywindow.hwnd, GWL_EXSTYLE, GetWindowLong(mywindow.hwnd, GWL_EXSTYLE) | WS_EX_LAYERED);
     }
 }
 
-//创建D3D设备
+// Initialize Direct3D device and swap chain
 bool myimgui::CreateDeviceD3D(HWND hWnd)
 {
     // Setup swap chain
@@ -162,12 +177,17 @@ bool myimgui::CreateDeviceD3D(HWND hWnd)
     sd.SwapEffect = DXGI_SWAP_EFFECT_DISCARD;
 
     UINT createDeviceFlags = 0;
-    //createDeviceFlags |= D3D11_CREATE_DEVICE_DEBUG;
     D3D_FEATURE_LEVEL featureLevel;
     const D3D_FEATURE_LEVEL featureLevelArray[2] = { D3D_FEATURE_LEVEL_11_0, D3D_FEATURE_LEVEL_10_0, };
-    HRESULT res = D3D11CreateDeviceAndSwapChain(nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr, createDeviceFlags, featureLevelArray, 2, D3D11_SDK_VERSION, &sd, &g_pSwapChain, &g_pd3dDevice, &featureLevel, &g_pd3dDeviceContext);
-    if (res == DXGI_ERROR_UNSUPPORTED) // Try high-performance WARP software driver if hardware is not available.
-        res = D3D11CreateDeviceAndSwapChain(nullptr, D3D_DRIVER_TYPE_WARP, nullptr, createDeviceFlags, featureLevelArray, 2, D3D11_SDK_VERSION, &sd, &g_pSwapChain, &g_pd3dDevice, &featureLevel, &g_pd3dDeviceContext);
+    
+    // Try to create hardware device
+    HRESULT res = D3D11CreateDeviceAndSwapChain(nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr, createDeviceFlags,
+        featureLevelArray, 2, D3D11_SDK_VERSION, &sd, &g_pSwapChain, &g_pd3dDevice, &featureLevel, &g_pd3dDeviceContext);
+
+    // Fall back to WARP device if hardware is not available
+    if (res == DXGI_ERROR_UNSUPPORTED)
+        res = D3D11CreateDeviceAndSwapChain(nullptr, D3D_DRIVER_TYPE_WARP, nullptr, createDeviceFlags,
+            featureLevelArray, 2, D3D11_SDK_VERSION, &sd, &g_pSwapChain, &g_pd3dDevice, &featureLevel, &g_pd3dDeviceContext);
     if (res != S_OK)
         return false;
 
@@ -175,7 +195,7 @@ bool myimgui::CreateDeviceD3D(HWND hWnd)
     return true;
 }
 
-//清理D3D设备
+// Clean up Direct3D resources
 void myimgui::CleanupDeviceD3D()
 {
     CleanupRenderTarget();
@@ -184,7 +204,7 @@ void myimgui::CleanupDeviceD3D()
     if (g_pd3dDevice) { g_pd3dDevice->Release(); g_pd3dDevice = nullptr; }
 }
 
-//创建目标渲染视图
+// Create render target view
 void myimgui::CreateRenderTarget()
 {
     ID3D11Texture2D* pBackBuffer;
@@ -193,13 +213,13 @@ void myimgui::CreateRenderTarget()
     pBackBuffer->Release();
 }
 
-//清理目标渲染视图
+// Clean up render target
 void myimgui::CleanupRenderTarget()
 {
     if (g_mainRenderTargetView) { g_mainRenderTargetView->Release(); g_mainRenderTargetView = nullptr; }
 }
 
-//Win32窗口消息处理函数
+// Win32 window procedure
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 LRESULT WINAPI myimgui::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
@@ -210,18 +230,18 @@ LRESULT WINAPI myimgui::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lPara
     {
     case WM_CREATE:
     {
-        MARGINS Margin = { -1 };
-        DwmExtendFrameIntoClientArea(hWnd, &Margin);
+        MARGINS margin = { -1 };
+        DwmExtendFrameIntoClientArea(hWnd, &margin);
         break;
     }
     case WM_SIZE:
         if (wParam == SIZE_MINIMIZED)
             return 0;
-        g_ResizeWidth = (UINT)LOWORD(lParam); // Queue resize
+        g_ResizeWidth = (UINT)LOWORD(lParam);
         g_ResizeHeight = (UINT)HIWORD(lParam);
         return 0;
     case WM_SYSCOMMAND:
-        if ((wParam & 0xfff0) == SC_KEYMENU) // Disable ALT application menu
+        if ((wParam & 0xfff0) == SC_KEYMENU)
             return 0;
         break;
     case WM_DESTROY:
