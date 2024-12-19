@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2024-11-29 09:24:05.514722200 UTC
+// 2024-12-19 11:26:51.283285100 UTC
 
 #pragma once
 
@@ -793,7 +793,7 @@ namespace cs2_dumper {
             // MParticleCustomFieldDefaultValue
             namespace CParticleModelInput {
                 constexpr std::ptrdiff_t m_nType = 0x10; // 
-                constexpr std::ptrdiff_t m_NamedValue = 0x18; // 
+                constexpr std::ptrdiff_t m_NamedValue = 0x18; // CParticleNamedValueRef
                 constexpr std::ptrdiff_t m_nControlPoint = 0x58; // 
             }
             // Parent: CParticleFunctionOperator
@@ -1974,7 +1974,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_flUVOffset = 0x8B8; // 
                 constexpr std::ptrdiff_t m_flSplitRate = 0xA18; // 
                 constexpr std::ptrdiff_t m_flBranchTwist = 0xB78; // 
-                constexpr std::ptrdiff_t m_nBranchBehavior = 0xCD8; // 
+                constexpr std::ptrdiff_t m_nBranchBehavior = 0xCD8; // ParticleLightnintBranchBehavior_t
                 constexpr std::ptrdiff_t m_flRadiusStart = 0xCE0; // 
                 constexpr std::ptrdiff_t m_flRadiusEnd = 0xE40; // 
                 constexpr std::ptrdiff_t m_flDedicatedPool = 0xFA0; // 
@@ -2323,7 +2323,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_nType = 0x10; // 
                 constexpr std::ptrdiff_t m_vLiteralValue = 0x14; // 
                 constexpr std::ptrdiff_t m_LiteralColor = 0x20; // 
-                constexpr std::ptrdiff_t m_NamedValue = 0x28; // 
+                constexpr std::ptrdiff_t m_NamedValue = 0x28; // CParticleNamedValueRef
                 constexpr std::ptrdiff_t m_bFollowNamedValue = 0x68; // 
                 constexpr std::ptrdiff_t m_nVectorAttribute = 0x6C; // 
                 constexpr std::ptrdiff_t m_vVectorAttributeScale = 0x70; // 
@@ -4110,7 +4110,7 @@ namespace cs2_dumper {
             // MParticleCustomFieldDefaultValue
             namespace CParticleTransformInput {
                 constexpr std::ptrdiff_t m_nType = 0x10; // 
-                constexpr std::ptrdiff_t m_NamedValue = 0x18; // 
+                constexpr std::ptrdiff_t m_NamedValue = 0x18; // CParticleNamedValueRef
                 constexpr std::ptrdiff_t m_bFollowNamedValue = 0x58; // 
                 constexpr std::ptrdiff_t m_bSupportsDisabled = 0x59; // 
                 constexpr std::ptrdiff_t m_bUseOrientation = 0x5A; // 
@@ -4203,7 +4203,7 @@ namespace cs2_dumper {
             // Metadata:
             // MGetKV3ClassDefaults
             namespace C_OP_RenderOmni2Light {
-                constexpr std::ptrdiff_t m_nLightType = 0x210; // 
+                constexpr std::ptrdiff_t m_nLightType = 0x210; // ParticleOmni2LightTypeChoiceList_t
                 constexpr std::ptrdiff_t m_vColorBlend = 0x218; // 
                 constexpr std::ptrdiff_t m_nColorBlendType = 0x890; // 
                 constexpr std::ptrdiff_t m_nBrightnessUnit = 0x894; // 
@@ -5225,7 +5225,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_flTheta = 0xA00; // 
                 constexpr std::ptrdiff_t m_flPhi = 0xB60; // 
                 constexpr std::ptrdiff_t m_flRadiusMultiplier = 0xCC0; // 
-                constexpr std::ptrdiff_t m_nAttenuationStyle = 0xE20; // 
+                constexpr std::ptrdiff_t m_nAttenuationStyle = 0xE20; // StandardLightingAttenuationStyle_t
                 constexpr std::ptrdiff_t m_flFalloffLinearity = 0xE28; // 
                 constexpr std::ptrdiff_t m_flFiftyPercentFalloff = 0xF88; // 
                 constexpr std::ptrdiff_t m_flZeroPercentFalloff = 0x10E8; // 
@@ -5235,7 +5235,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_nPriority = 0x1258; // 
                 constexpr std::ptrdiff_t m_nFogLightingMode = 0x125C; // 
                 constexpr std::ptrdiff_t m_flFogContribution = 0x1260; // CParticleCollectionRendererFloatInput
-                constexpr std::ptrdiff_t m_nCapsuleLightBehavior = 0x13C0; // 
+                constexpr std::ptrdiff_t m_nCapsuleLightBehavior = 0x13C0; // ParticleLightBehaviorChoiceList_t
                 constexpr std::ptrdiff_t m_flCapsuleLength = 0x13C4; // 
                 constexpr std::ptrdiff_t m_bReverseOrder = 0x13C8; // 
                 constexpr std::ptrdiff_t m_bClosedLoop = 0x13C9; // 
@@ -5776,7 +5776,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_nType = 0x10; // 
                 constexpr std::ptrdiff_t m_nMapType = 0x14; // 
                 constexpr std::ptrdiff_t m_flLiteralValue = 0x18; // 
-                constexpr std::ptrdiff_t m_NamedValue = 0x20; // 
+                constexpr std::ptrdiff_t m_NamedValue = 0x20; // CParticleNamedValueRef
                 constexpr std::ptrdiff_t m_nControlPoint = 0x60; // 
                 constexpr std::ptrdiff_t m_nScalarAttribute = 0x64; // 
                 constexpr std::ptrdiff_t m_nVectorAttribute = 0x68; // 

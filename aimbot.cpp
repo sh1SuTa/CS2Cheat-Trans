@@ -9,7 +9,7 @@ void 自瞄队列()
 	if (WorldScreen2d(World, screen))
 	{
 		//计算准星到目标的距离
-		cheat::ActorDistance[0] = calculateDistance({cheat::屏幕宽度,cheat::屏幕高度}, {screen[0],screen[1]});
+		cheat::ActorDistance[0] = calculateDistance({cheat::screenWidth,cheat::screenHeight }, {screen[0],screen[1]});
 		//找出最小距离
 		if (cheat::ActorDistance[0]<= cheat::ActorDistance[1])
 		{
@@ -21,7 +21,7 @@ void 自瞄队列()
 	}
 }
 
-void 自瞄()
+void aimbot()
 {
 	if (cheat::LocalPlayer.Health <= 0) {
 		return; // 本地玩家死亡时不进行瞄准
@@ -31,7 +31,7 @@ void 自瞄()
 	cheat::AimAddress[0] = cheat::EnterAimAddress[0];
 	cheat::AimAddress[1] = cheat::EnterAimAddress[1];
 	int lin_hp;
-	mem::Read(cheat::g_handle, cheat::AimAddress[0] + 0x344, &lin_hp, 4);
+	mem::Read(游戏进程::g_handle, cheat::AimAddress[0] + 0x344, &lin_hp, 4);
 	// 判断对方血量是否 > 0
 	if (lin_hp > 0)
 	{
@@ -43,8 +43,8 @@ void 自瞄()
 
 			if (GetAsyncKeyState(Menu::Aimkey))
 			{
-				mem::Write(cheat::clientAddress + 视角::yam, &cheat::Aimmouse.x, sizeof(cheat::Aimmouse.x));
-				mem::Write(cheat::clientAddress + 视角::pitch, &cheat::Aimmouse.y, sizeof(cheat::Aimmouse.y));
+				mem::Write(游戏进程::clientAddress + 视角::yam, &cheat::Aimmouse.x, sizeof(cheat::Aimmouse.x));
+				mem::Write(游戏进程::clientAddress + 视角::pitch, &cheat::Aimmouse.y, sizeof(cheat::Aimmouse.y));
 			}
 		}
 	}
@@ -61,9 +61,9 @@ D2D Aiming(D3D LocalAxis, char* AimAddress)
 	float P_I = 3.1415926535f;
 	//6为目标头部
 	Aimindex = AimAddress + Menu::Aimplace * 32;
-	mem::Read(cheat::g_handle, Aimindex, &ActorAxis.x, sizeof(ActorAxis.x));
-	mem::Read(cheat::g_handle, Aimindex + 4, &ActorAxis.y, sizeof(ActorAxis.y));
-	mem::Read(cheat::g_handle, Aimindex + 8, &ActorAxis.z, sizeof(ActorAxis.z));
+	mem::Read(游戏进程::g_handle, Aimindex, &ActorAxis.x, sizeof(ActorAxis.x));
+	mem::Read(游戏进程::g_handle, Aimindex + 4, &ActorAxis.y, sizeof(ActorAxis.y));
+	mem::Read(游戏进程::g_handle, Aimindex + 8, &ActorAxis.z, sizeof(ActorAxis.z));
 	AimAxis.z = LocalAxis.z - ActorAxis.z;
 	AimAxis.x = ActorAxis.x - LocalAxis.x;
 	AimAxis.y = ActorAxis.y - LocalAxis.y;
@@ -83,8 +83,8 @@ cheat::ActorInfo 选择最近目标(const std::vector<cheat::ActorInfo>& targets
 	float minDistance = FLT_MAX;
 
 	for (const auto& target : targets) {
-		if (target.距离 < minDistance) {
-			minDistance = target.距离;
+		if (target.distance < minDistance) {
+			minDistance = target.distance;
 			bestTarget = target;
 		}
 	}

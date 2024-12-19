@@ -69,13 +69,13 @@
     <ClCompile Include="Menu.cpp">
       <Filter>Menu</Filter>
     </ClCompile>
-    <ClCompile Include="自瞄功能.cpp">
+    <ClCompile Include="aimbot.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="工具.cpp">
+    <ClCompile Include="tool.cpp">
       <Filter>工具类</Filter>
     </ClCompile>
-    <ClCompile Include="透视.cpp">
+    <ClCompile Include="esp.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -107,22 +107,19 @@
     <ClInclude Include="myimgui.h">
       <Filter>myimgui</Filter>
     </ClInclude>
-    <ClInclude Include="工具类\Mem.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="cheat.h">
       <Filter>cheat</Filter>
     </ClInclude>
     <ClInclude Include="Menu.h">
       <Filter>Menu</Filter>
     </ClInclude>
-    <ClInclude Include="工具.h">
+    <ClInclude Include="tool.h">
       <Filter>工具类</Filter>
     </ClInclude>
-    <ClInclude Include="透视.h">
+    <ClInclude Include="esp.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="工具类\XorStr.h">
+    <ClInclude Include="tools\XorStr.h">
       <Filter>工具类</Filter>
     </ClInclude>
     <ClInclude Include="output\worldrenderer_dll.hpp">
@@ -185,13 +182,16 @@
     <ClInclude Include="output\buttons.hpp">
       <Filter>output</Filter>
     </ClInclude>
-    <ClInclude Include="视角.h">
+    <ClInclude Include="angle.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="address\游戏进程.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="main.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\Mem.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

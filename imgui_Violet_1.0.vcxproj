@@ -159,9 +159,9 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="myimgui.cpp" />
-    <ClCompile Include="工具.cpp" />
-    <ClCompile Include="自瞄功能.cpp" />
-    <ClCompile Include="透视.cpp" />
+    <ClCompile Include="tool.cpp" />
+    <ClCompile Include="aimbot.cpp" />
+    <ClCompile Include="esp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h" />
@@ -175,7 +175,6 @@
     <ClInclude Include="ImGui\imstb_rectpack.h" />
     <ClInclude Include="ImGui\imstb_textedit.h" />
     <ClInclude Include="ImGui\imstb_truetype.h" />
-    <ClInclude Include="工具类\Mem.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="myimgui.h" />
     <ClInclude Include="output\animationsystem_dll.hpp" />
@@ -198,10 +197,11 @@
     <ClInclude Include="output\soundsystem_dll.hpp" />
     <ClInclude Include="output\vphysics2_dll.hpp" />
     <ClInclude Include="output\worldrenderer_dll.hpp" />
-    <ClInclude Include="工具.h" />
-    <ClInclude Include="工具类\XorStr.h" />
-    <ClInclude Include="视角.h" />
-    <ClInclude Include="透视.h" />
+    <ClInclude Include="tool.h" />
+    <ClInclude Include="tools\Mem.h" />
+    <ClInclude Include="tools\XorStr.h" />
+    <ClInclude Include="angle.h" />
+    <ClInclude Include="esp.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

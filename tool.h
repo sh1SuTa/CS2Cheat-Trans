@@ -1,9 +1,9 @@
 ﻿#pragma once
 #include"cheat.h"
-#include"工具类/Mem.h"
+#include"tools/Mem.h"
 #include"output/offsets.hpp"
 #include"output/client_dll.hpp"
-#include"工具类/XorStr.h"
+#include"tools/XorStr.h"
 
 #include <Windows.h>
 #include <stdexcept>

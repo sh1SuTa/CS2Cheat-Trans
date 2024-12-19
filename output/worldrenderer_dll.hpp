@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2024-11-29 09:24:05.514722200 UTC
+// 2024-12-19 11:26:51.283285100 UTC
 
 #pragma once
 
@@ -91,8 +91,8 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_allFlags = 0x0; // 
                 constexpr std::ptrdiff_t m_anyFlags = 0x4; // 
                 constexpr std::ptrdiff_t m_nLayer = 0x8; // 
-                constexpr std::ptrdiff_t m_aggregateMeshes = 0x10; // 
-                constexpr std::ptrdiff_t m_lodSetups = 0x28; // 
+                constexpr std::ptrdiff_t m_aggregateMeshes = 0x10; // CUtlVector<AggregateMeshInfo_t>
+                constexpr std::ptrdiff_t m_lodSetups = 0x28; // CUtlVector<AggregateLODSetup_t>
                 constexpr std::ptrdiff_t m_visClusterMembership = 0x40; // 
                 constexpr std::ptrdiff_t m_fragmentTransforms = 0x58; // 
                 constexpr std::ptrdiff_t m_renderableModel = 0x70; // CStrongHandle<InfoForResourceTypeCModel>
@@ -150,7 +150,7 @@ namespace cs2_dumper {
             namespace PermEntityLumpData_t {
                 constexpr std::ptrdiff_t m_name = 0x8; // 
                 constexpr std::ptrdiff_t m_childLumps = 0x10; // CUtlVector<CStrongHandleCopyable<InfoForResourceTypeCEntityLump>>
-                constexpr std::ptrdiff_t m_entityKeyValues = 0x28; // 
+                constexpr std::ptrdiff_t m_entityKeyValues = 0x28; // CUtlLeanVector<EntityKeyValueData_t>
             }
             // Parent: None
             // Field count: 14
@@ -161,7 +161,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_sceneObjects = 0x0; // 
                 constexpr std::ptrdiff_t m_infoOverlays = 0x18; // 
                 constexpr std::ptrdiff_t m_visClusterMembership = 0x30; // 
-                constexpr std::ptrdiff_t m_aggregateSceneObjects = 0x48; // 
+                constexpr std::ptrdiff_t m_aggregateSceneObjects = 0x48; // CUtlVector<AggregateSceneObject_t>
                 constexpr std::ptrdiff_t m_clutterSceneObjects = 0x60; // CUtlVector<ClutterSceneObject_t>
                 constexpr std::ptrdiff_t m_extraVertexStreamOverrides = 0x78; // CUtlVector<ExtraVertexStreamOverride_t>
                 constexpr std::ptrdiff_t m_materialOverrides = 0x90; // CUtlVector<MaterialOverride_t>
@@ -235,7 +235,7 @@ namespace cs2_dumper {
             namespace WorldNodeOnDiskBufferData_t {
                 constexpr std::ptrdiff_t m_nElementCount = 0x0; // 
                 constexpr std::ptrdiff_t m_nElementSizeInBytes = 0x4; // 
-                constexpr std::ptrdiff_t m_inputLayoutFields = 0x8; // 
+                constexpr std::ptrdiff_t m_inputLayoutFields = 0x8; // CUtlVector<RenderInputLayoutField_t>
                 constexpr std::ptrdiff_t m_pData = 0x20; // 
             }
             // Parent: None
@@ -298,7 +298,7 @@ namespace cs2_dumper {
             // Metadata:
             // MGetKV3ClassDefaults
             namespace EntityKeyValueData_t {
-                constexpr std::ptrdiff_t m_connections = 0x8; // 
+                constexpr std::ptrdiff_t m_connections = 0x8; // CUtlVector<EntityIOConnectionData_t>
                 constexpr std::ptrdiff_t m_keyValuesData = 0x20; // 
             }
             // Parent: None

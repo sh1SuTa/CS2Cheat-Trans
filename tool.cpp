@@ -1,6 +1,6 @@
 ﻿
 
-#include"工具.h"
+#include"tool.h"
 
 
 void 改fov角度() {
@@ -26,13 +26,13 @@ void 改fov角度() {
 }
 
 void 改fov角度2() {
-    cheat::clientAddress + cs2_dumper::offsets::client_dll::dwLocalPlayerPawn;
+    游戏进程::clientAddress + cs2_dumper::offsets::client_dll::dwLocalPlayerPawn;
 }
 
 void 旋转大陀螺() {
     
             float 转速 = 1.f;
-            mem::Write( cheat::clientAddress + 视角::yam, &工具::初始值, sizeof(工具::初始值));
+            mem::Write(游戏进程::clientAddress + 视角::yam, &工具::初始值, sizeof(工具::初始值));
             工具::初始值 = 工具::初始值 + 转速;
             if (工具::初始值 == 180)
             {

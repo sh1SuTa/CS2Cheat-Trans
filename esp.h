@@ -1,6 +1,6 @@
 #pragma once
 #include"cheat.h"
-#include"工具类/Mem.h"
+#include"tools/Mem.h"
 
 namespace 透视 {
 	struct D2D

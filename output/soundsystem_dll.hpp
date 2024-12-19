@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2024-11-29 09:24:05.514722200 UTC
+// 2024-12-19 11:26:51.283285100 UTC
 
 #pragma once
 
@@ -326,7 +326,7 @@ namespace cs2_dumper {
             // MGetKV3ClassDefaults
             // MVDataNodeType
             namespace CDSPPresetMixgroupModifierTable {
-                constexpr std::ptrdiff_t m_table = 0x0; // CUtlVector<CDspPresetModifierList>
+                constexpr std::ptrdiff_t m_table = 0x0; // 
             }
             // Parent: CSosGroupActionSchema
             // Field count: 7
@@ -573,7 +573,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_times = 0x0; // 
                 constexpr std::ptrdiff_t m_nameHashCodes = 0x18; // 
                 constexpr std::ptrdiff_t m_nameStrings = 0x30; // 
-                constexpr std::ptrdiff_t m_samples = 0x48; // CUtlVector<CUtlVector<float32>>
+                constexpr std::ptrdiff_t m_samples = 0x48; // 
                 constexpr std::ptrdiff_t m_flEaseIn = 0x60; // 
                 constexpr std::ptrdiff_t m_flEaseOut = 0x64; // 
             }
@@ -612,7 +612,7 @@ namespace cs2_dumper {
             // MGetKV3ClassDefaults
             namespace CDspPresetModifierList {
                 constexpr std::ptrdiff_t m_dspName = 0x0; // 
-                constexpr std::ptrdiff_t m_modifiers = 0x8; // CUtlVector<CDSPMixgroupModifier>
+                constexpr std::ptrdiff_t m_modifiers = 0x8; // 
             }
             // Parent: None
             // Field count: 2
@@ -818,7 +818,7 @@ namespace cs2_dumper {
             namespace CSoundContainerReferenceArray {
                 constexpr std::ptrdiff_t m_bUseReference = 0x0; // 
                 constexpr std::ptrdiff_t m_sounds = 0x8; // CUtlVector<CStrongHandle<InfoForResourceTypeCVoiceContainerBase>>
-                constexpr std::ptrdiff_t m_pSounds = 0x20; // CUtlVector<CVoiceContainerBase*>
+                constexpr std::ptrdiff_t m_pSounds = 0x20; // 
             }
             // Parent: None
             // Field count: 4
@@ -877,7 +877,7 @@ namespace cs2_dumper {
             namespace CAudioSentence {
                 constexpr std::ptrdiff_t m_bShouldVoiceDuck = 0x0; // 
                 constexpr std::ptrdiff_t m_RunTimePhonemes = 0x8; // 
-                constexpr std::ptrdiff_t m_EmphasisSamples = 0x20; // CUtlVector<CAudioEmphasisSample>
+                constexpr std::ptrdiff_t m_EmphasisSamples = 0x20; // 
                 constexpr std::ptrdiff_t m_morphData = 0x38; // 
             }
             // Parent: CSosGroupActionSchema

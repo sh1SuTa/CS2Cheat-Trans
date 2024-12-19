@@ -7,8 +7,8 @@
 #include "ImGui/imstb_rectpack.h"
 #include "ImGui/imstb_textedit.h"
 #include "ImGui/imstb_truetype.h"
-#include"工具.h"
-#include"透视.h"
+#include"tool.h"
+#include"esp.h"
 
 #include<iostream>
 #include<Windows.h>
