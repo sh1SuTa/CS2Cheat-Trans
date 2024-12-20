@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2024-12-19 11:26:51.283285100 UTC
+// 2024-12-20 14:51:06.393764 UTC
 
 #pragma once
 
@@ -48,7 +48,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_nLODOverride = 0x6A; // 
                 constexpr std::ptrdiff_t m_nCubeMapPrecomputedHandshake = 0x6C; // 
                 constexpr std::ptrdiff_t m_nLightProbeVolumePrecomputedHandshake = 0x70; // 
-                constexpr std::ptrdiff_t m_renderableModel = 0x78; // CStrongHandle<InfoForResourceTypeCModel>
+                constexpr std::ptrdiff_t m_renderableModel = 0x78; // 
                 constexpr std::ptrdiff_t m_renderable = 0x80; // CStrongHandle<InfoForResourceTypeCRenderMesh>
             }
             // Parent: None
@@ -91,11 +91,11 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_allFlags = 0x0; // 
                 constexpr std::ptrdiff_t m_anyFlags = 0x4; // 
                 constexpr std::ptrdiff_t m_nLayer = 0x8; // 
-                constexpr std::ptrdiff_t m_aggregateMeshes = 0x10; // CUtlVector<AggregateMeshInfo_t>
-                constexpr std::ptrdiff_t m_lodSetups = 0x28; // CUtlVector<AggregateLODSetup_t>
+                constexpr std::ptrdiff_t m_aggregateMeshes = 0x10; // 
+                constexpr std::ptrdiff_t m_lodSetups = 0x28; // 
                 constexpr std::ptrdiff_t m_visClusterMembership = 0x40; // 
                 constexpr std::ptrdiff_t m_fragmentTransforms = 0x58; // 
-                constexpr std::ptrdiff_t m_renderableModel = 0x70; // CStrongHandle<InfoForResourceTypeCModel>
+                constexpr std::ptrdiff_t m_renderableModel = 0x70; // 
             }
             // Parent: None
             // Field count: 7
@@ -128,7 +128,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_instanceScales = 0x50; // 
                 constexpr std::ptrdiff_t m_instanceTintSrgb = 0x68; // 
                 constexpr std::ptrdiff_t m_tiles = 0x80; // 
-                constexpr std::ptrdiff_t m_renderableModel = 0x98; // CStrongHandle<InfoForResourceTypeCModel>
+                constexpr std::ptrdiff_t m_renderableModel = 0x98; // 
             }
             // Parent: None
             // Field count: 5
@@ -150,7 +150,7 @@ namespace cs2_dumper {
             namespace PermEntityLumpData_t {
                 constexpr std::ptrdiff_t m_name = 0x8; // 
                 constexpr std::ptrdiff_t m_childLumps = 0x10; // CUtlVector<CStrongHandleCopyable<InfoForResourceTypeCEntityLump>>
-                constexpr std::ptrdiff_t m_entityKeyValues = 0x28; // CUtlLeanVector<EntityKeyValueData_t>
+                constexpr std::ptrdiff_t m_entityKeyValues = 0x28; // 
             }
             // Parent: None
             // Field count: 14
@@ -161,11 +161,11 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_sceneObjects = 0x0; // 
                 constexpr std::ptrdiff_t m_infoOverlays = 0x18; // 
                 constexpr std::ptrdiff_t m_visClusterMembership = 0x30; // 
-                constexpr std::ptrdiff_t m_aggregateSceneObjects = 0x48; // CUtlVector<AggregateSceneObject_t>
-                constexpr std::ptrdiff_t m_clutterSceneObjects = 0x60; // CUtlVector<ClutterSceneObject_t>
-                constexpr std::ptrdiff_t m_extraVertexStreamOverrides = 0x78; // CUtlVector<ExtraVertexStreamOverride_t>
-                constexpr std::ptrdiff_t m_materialOverrides = 0x90; // CUtlVector<MaterialOverride_t>
-                constexpr std::ptrdiff_t m_extraVertexStreams = 0xA8; // CUtlVector<WorldNodeOnDiskBufferData_t>
+                constexpr std::ptrdiff_t m_aggregateSceneObjects = 0x48; // 
+                constexpr std::ptrdiff_t m_clutterSceneObjects = 0x60; // 
+                constexpr std::ptrdiff_t m_extraVertexStreamOverrides = 0x78; // 
+                constexpr std::ptrdiff_t m_materialOverrides = 0x90; // 
+                constexpr std::ptrdiff_t m_extraVertexStreams = 0xA8; // 
                 constexpr std::ptrdiff_t m_layerNames = 0xC0; // 
                 constexpr std::ptrdiff_t m_sceneObjectLayerIndices = 0xD8; // 
                 constexpr std::ptrdiff_t m_overlayLayerIndices = 0xF0; // 
@@ -235,7 +235,7 @@ namespace cs2_dumper {
             namespace WorldNodeOnDiskBufferData_t {
                 constexpr std::ptrdiff_t m_nElementCount = 0x0; // 
                 constexpr std::ptrdiff_t m_nElementSizeInBytes = 0x4; // 
-                constexpr std::ptrdiff_t m_inputLayoutFields = 0x8; // CUtlVector<RenderInputLayoutField_t>
+                constexpr std::ptrdiff_t m_inputLayoutFields = 0x8; // 
                 constexpr std::ptrdiff_t m_pData = 0x20; // 
             }
             // Parent: None
@@ -277,7 +277,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_flDepth = 0x38; // 
                 constexpr std::ptrdiff_t m_vUVStart = 0x3C; // 
                 constexpr std::ptrdiff_t m_vUVEnd = 0x44; // 
-                constexpr std::ptrdiff_t m_pMaterial = 0x50; // CStrongHandle<InfoForResourceTypeIMaterial2>
+                constexpr std::ptrdiff_t m_pMaterial = 0x50; // 
                 constexpr std::ptrdiff_t m_nRenderOrder = 0x58; // 
                 constexpr std::ptrdiff_t m_vTintColor = 0x5C; // 
                 constexpr std::ptrdiff_t m_nSequenceOverride = 0x6C; // 
@@ -290,7 +290,7 @@ namespace cs2_dumper {
             namespace MaterialOverride_t {
                 constexpr std::ptrdiff_t m_nSubSceneObject = 0x4; // 
                 constexpr std::ptrdiff_t m_nDrawCallIndex = 0x8; // 
-                constexpr std::ptrdiff_t m_pMaterial = 0x10; // CStrongHandle<InfoForResourceTypeIMaterial2>
+                constexpr std::ptrdiff_t m_pMaterial = 0x10; // 
             }
             // Parent: None
             // Field count: 2
@@ -298,7 +298,7 @@ namespace cs2_dumper {
             // Metadata:
             // MGetKV3ClassDefaults
             namespace EntityKeyValueData_t {
-                constexpr std::ptrdiff_t m_connections = 0x8; // CUtlVector<EntityIOConnectionData_t>
+                constexpr std::ptrdiff_t m_connections = 0x8; // 
                 constexpr std::ptrdiff_t m_keyValuesData = 0x20; // 
             }
             // Parent: None

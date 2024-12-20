@@ -194,5 +194,11 @@
     <ClInclude Include="tools\Mem.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="aimbot.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgui.ini" />
   </ItemGroup>
 </Project>

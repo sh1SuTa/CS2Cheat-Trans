@@ -164,6 +164,7 @@
     <ClCompile Include="esp.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="aimbot.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="address\游戏进程.h" />
     <ClInclude Include="cheat.h" />
@@ -202,6 +203,9 @@
     <ClInclude Include="tools\XorStr.h" />
     <ClInclude Include="angle.h" />
     <ClInclude Include="esp.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgui.ini" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

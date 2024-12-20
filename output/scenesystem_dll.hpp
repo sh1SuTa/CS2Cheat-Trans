@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2024-12-19 11:26:51.283285100 UTC
+// 2024-12-20 14:51:06.393764 UTC
 
 #pragma once
 
@@ -89,7 +89,7 @@ namespace cs2_dumper {
             namespace CSSDSMsg_ViewTargetList {
                 constexpr std::ptrdiff_t m_viewId = 0x0; // 
                 constexpr std::ptrdiff_t m_ViewName = 0x10; // 
-                constexpr std::ptrdiff_t m_Targets = 0x18; // CUtlVector<CSSDSMsg_ViewTarget>
+                constexpr std::ptrdiff_t m_Targets = 0x18; // 
             }
             // Parent: None
             // Field count: 2

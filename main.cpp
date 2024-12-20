@@ -33,7 +33,7 @@ void initGame() {
 	std::cout << "HWND：" << 游戏进程::g_hwnd << std::endl;
 	//获取窗口对应的进程ID
 	GetWindowThreadProcessId(游戏进程::g_hwnd, &游戏进程::g_pid);
-	//获取窗口对应的进程句柄
+	//获取进程ID对应的进程句柄
 	游戏进程::g_handle = OpenProcess(PROCESS_ALL_ACCESS,true, 游戏进程::g_pid);
 	//获取client.dll模块的地址
 	if (游戏进程::clientAddress = mem::GetModule(游戏进程::g_pid, L"client.dll")) {
